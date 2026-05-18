@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@400;9006display=swap');
+@import '../constants/Colors.css';
+
+.stats-card{
+    background: #FFFFFF;
+    border: 1px solid #C9C3C3 ;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+   
+   
+}
+.stats-titulo-icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.stats-titulo-icon h3{
+    font-size: 20px;
+    font-family:'Roboto', sans-serif;
+    color: var(--cinza_titlecard);
+}
+
+.stats-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-family:'Roboto', sans-serif; 
+    color: var(--verde_iconcard);
+    background: var(--medio_verdbacgroudiconcard);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.stats-card h1{
+    margin-top: -20px;
+    font-size: 40px;
+    color: var( --preto);
+    font-family:'Roboto', sans-serif; 
+  
+}
+
+.stats-card p{
+    margin-top: -45px;
+    color: var(--verde_iconcard);
+    font-size: 15px;
+    font-family:'Roboto', sans-serif; 
+
+}
+.stats-card.voo p{
+    margin-top: -45px;
+    color: var(--cinza_titlecard);
+    font-size: 15px;
+}
+.stats-card.voo .stats-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-family:'Roboto', sans-serif; 
+    color: var( --azul);
+    background: var(--medio_azulbacgroundiconcard);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+.stats-card.bagagem .stats-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-family:'Roboto', sans-serif; 
+    color: var( --castanho);
+    background: var(--medio_castanhobacgroundiconcard);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.stats-card.bagagem p{
+    margin-top: -45px;
+    color: var(--vermelho);
+    font-size: 15px;
+}
+.stats-card.atendimento .stats-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-family:'Roboto', sans-serif; 
+    color: var( --vermelho);
+    background: var(--medio_vermelhobacgroundiconcard);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+.stats-card.atendimento p{
+    color: var(--vermelho);
+    font-size: 15px;
+}
+.stats-card.atendimento h1{
+    margin-top: -20px;
+    font-size: 40px;
+    color: var( --vermelho);
+    font-family:'Roboto', sans-serif; 
+}
+/*
+    Estilos do statscadr da secção Voo
+*/
+.stats-card.voo_programados .stats-icon{
+    background: white; 
+}
+.stats-card.voo_programados h1{
+    font-family:'Roboto', sans-serif; 
+    font-size: 30px;
+}
+
+.stats-card.voo_em_atendimento .stats-icon{
+    background: white; 
+}
+.stats-card.voo_em_atendimento h1{
+    color: var( --castanho);
+    font-family:'Roboto', sans-serif; 
+    font-size: 30px;
+}
+
+.stats-card.voo_atrasados .stats-icon{
+    background: white; 
+}
+.stats-card.voo_atrasados h1{
+    color: var( --vermelho);
+    font-family:'Roboto', sans-serif; 
+    font-size: 30px;
+}
+
+.stats-card.voo_concluidos .stats-icon{
+    background: white; 
+}
+.stats-card.voo_concluidos h1{
+    color: var( --verde_iconcard);
+    font-family:'Roboto', sans-serif; 
+    font-size: 30px;
+}

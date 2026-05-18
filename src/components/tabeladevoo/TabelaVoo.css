@@ -1,0 +1,117 @@
+@import '../constants/Colors.css';
+
+.tabela-voo{
+    
+    border-radius: 20px;
+    border: 1px solid #C9C3C3;
+    padding: 20px;
+    width: 69%;
+    overflow-x: auto;
+}
+.tabela-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+}
+.ver-todos{
+    text-decoration: none;
+
+    color: #1565C0;
+
+    font-weight: 600;
+
+    font-size: 15px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    text-align: left;
+    padding-bottom: 15px;
+    color: var(--cinza_titlecard);
+}
+td{
+    padding: 15px 0;
+
+    border-top: 1px solid #C9C3C3;
+}
+
+.status{
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.status.embarcando{
+    background: var(--medio_verdbacgroudiconcard);
+    color: #3A730B;
+}
+
+.status.atrasado{
+    background: var(--cinza_titlecard);
+    color: #982279;
+}
+
+.status.confirmado{
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+
+/* EMBARQUE */
+
+.embarque-info{
+    display: flex;
+
+    flex-direction: column;
+    
+    gap: 8px;
+}
+th:last-child,
+td:last-child{
+    text-align: right;
+}
+
+.embarque-info span{
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #777;
+}
+
+.barra{
+    width: 130px;
+    height: 6px;
+    background: #E5E5E5;
+    margin-left: auto;
+
+   
+    border-radius: 10px;
+    border: 1px solid var(--bordacinza);
+    overflow: hidden;
+}
+
+.progresso{
+    height: 100%;
+
+    border-radius: 10px ;
+}
+
+.progresso.embarcando{
+    background: #C97A10;
+}
+
+.tabela-header svg{
+    color: var(--azul);
+}
+
+.tabela-header h2 {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+

@@ -1,0 +1,108 @@
+
+.fluxo-checkin{
+    background: white;
+    border: 1px solid #E5E5E5;
+    border-radius: 20px;
+    padding: 20px;
+    width: 180px;
+}
+
+.fluxo-header{
+    margin-bottom: 20px;
+}
+
+.fluxo-header h2{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.fluxo-header svg{
+    color: #1565C0;
+}
+
+.fluxo-lista{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fluxo-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    padding: 0 8px;  
+}
+
+.fluxo-icon
+{  
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.fluxo-conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+}
+
+.fluxo-conteudo h3{
+    font-size: 12px;
+}
+.fluxo-conteudo p{
+    font-size: 13px;
+}
+.fluxo-conteudo p{
+    margin-top: 10px;
+}
+
+/* CONCLUÍDO */
+
+.fluxo-item.concluido{
+    background: #EEF7E7;
+    border: 1px solid #B7D78D;
+}
+
+.fluxo-item.concluido .fluxo-icon{
+    background: #B7D78D;
+
+    color: #4E7A1F;
+}
+
+/* ATIVO */
+
+.fluxo-item.ativo{
+    background: #E7F1FF;
+
+    border: 1px solid #8EB9F7;
+}
+
+.fluxo-item.ativo .fluxo-icon{
+    background: #8EB9F7;
+
+    color: #1565C0;
+}
+
+/* PENDENTE */
+
+.fluxo-item.pendente{
+    background: #F5F5F5;
+
+    border: 1px solid #D9D9D9;
+}
+
+.fluxo-item.pendente .fluxo-icon{
+    background: #D9D9D9;
+
+    color: #666;
+}

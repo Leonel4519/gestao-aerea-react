@@ -1,0 +1,28 @@
+.cards-container{
+    display: flex;
+    gap: 20px;
+}
+.painel{
+    display: flex;
+    flex-direction: column;
+    margin-left: 315px;
+    margin-top: 70px;
+}
+
+.tabela-container{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+.container-overbooking-alerta{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.painel-direito{
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+
+}

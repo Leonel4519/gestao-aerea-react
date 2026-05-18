@@ -1,0 +1,33 @@
+.alerta-overbooking{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #FFF7EB;
+    border: 1px solid #F0A53A;
+    border-radius: 16px;
+    padding: 18px 20px;
+    width: 100%;
+
+    /*
+    
+    width: 69%;
+    overflow-x: auto;
+    min-width: 530px;
+    */
+}
+.alerta-icon{
+    font-size: 24px;
+
+    color: #A86512;
+
+    display: flex;
+
+    align-items: center;
+}
+.alerta-overbooking p{
+    margin: 0;
+    color: #7A4B12;
+    font-size: 15px;
+    line-height: 1.4;
+   
+}

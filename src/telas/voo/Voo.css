@@ -1,0 +1,19 @@
+
+.voo-card-container{
+    display: flex;
+    gap: 15px;
+    
+}
+.seccao_voo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 315px;
+    margin-top: 70px;
+   
+}
+.tabelato_dos_voos-container{ 
+
+    margin-top: 20px;
+    
+   
+}

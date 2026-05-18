@@ -1,0 +1,90 @@
+/* UltimosCheckins.css */
+
+.ultimos-checkins{
+    background: white;
+
+    border: 1px solid #E5E5E5;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    width: 180px;
+}
+ckins-header{
+    margin-bottom: 20px;
+}
+
+.checkins-header h2{
+    font-size: 20px;
+}
+
+.checkins-lista{
+    display: flex;
+
+    flex-direction: column;
+}
+
+.checkin-item{
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.checkin-avatar{
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+.checkin-info h3{
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.checkin-info p{
+    margin: 5px 0 0;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+/* CORES */
+
+.checkin-avatar.azul{
+    background: #E7F1FF;
+
+    color: #1565C0;
+}
+
+.checkin-avatar.verde{
+    background: #EEF7E7;
+
+    color: #4E7A1F;
+}
+
+.checkin-avatar.roxo{
+    background: #F1EDFF;
+
+    color: #6A4BC4;
+}

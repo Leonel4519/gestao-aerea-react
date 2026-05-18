@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import Navbar from './components/navibar/Navbar';
 import './App.css';
+import Painel from './telas/painel/Painel';
+import Header from './header/Header';
+import { Route,Routes } from 'react-router-dom';
+import Voo from './telas/voo/Voo';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Navbar/>
+       <div className='container-header'>
+        <Header/>
+       </div>
+  
+       <Routes>
+        <Route path="/" element={<Painel/>}/>
+        <Route path="/voo" element={<Voo/>}/>
+       </Routes>
     </div>
   );
 }
-
 export default App;

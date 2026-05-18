@@ -1,0 +1,15 @@
+
+
+    :root{
+        --cinza_titlecard: #75736E;
+        --bordacinza:#C9C3C3;
+        --verde_iconcard: #3A730B;
+        --medio_verdbacgroudiconcard: #ddf8b9;
+        --preto: rgb(0, 0, 0);
+        --azul: #015AB4;
+        --medio_azulbacgroundiconcard: #CADFF4;
+        --castanho: #8B6129;
+        --medio_castanhobacgroundiconcard: #eccead;
+        --vermelho: #E24B4A;
+        --medio_vermelhobacgroundiconcard: #eec3c3;
+    }
