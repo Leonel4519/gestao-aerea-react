@@ -1,0 +1,61 @@
+.cartao-embarque {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.cartao-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.cartao-header h3 {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 14px; font-weight: 600; color: #1E293B;
+}
+
+.cartao-header h3 svg { color: #16A34A; }
+
+.cartao-status {
+    font-size: 11px; font-weight: 600;
+    color: #16A34A; background: #DCFCE7;
+    border: 1px solid #BBF7D0; border-radius: 20px; padding: 3px 10px;
+}
+
+.cartao-info {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.cartao-item { display: flex; flex-direction: column; gap: 3px; }
+.cartao-item span   { font-size: 11px; color: #16A34A; font-weight: 500; }
+.cartao-item strong { font-size: 18px; font-weight: 800; color: #14532D; letter-spacing: -0.5px; }
+.cartao-item p      { font-size: 11px; color: #4ADE80; }
+
+.cartao-botoes { display: flex; gap: 10px; }
+
+.btn-imprimir {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    height: 40px; width: 160px;
+    border: 1px solid #BBF7D0; border-radius: 12px;
+    background: white; font-size: 13px; font-weight: 600;
+    color: #16A34A; cursor: pointer; transition: background 0.15s;
+}
+.btn-imprimir:hover { background: #F0FDF4; }
+
+.btn-confirmar {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    height: 40px; flex: 1;
+    border: none; border-radius: 12px;
+    background: #16A34A; color: white;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+}
+.btn-confirmar:hover { background: #15803D; }

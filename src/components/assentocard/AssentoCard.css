@@ -1,0 +1,23 @@
+.assento-card {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    min-width: 180px;
+}
+
+.assento-header { margin-bottom: 14px; }
+
+.assento-header h3 {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 14px; font-weight: 600; color: #1E293B;
+}
+
+.assento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.assento-item { display: flex; flex-direction: column; gap: 2px; }
+.assento-item span   { font-size: 11px; color: #94A3B8; }
+.assento-item strong { font-size: 13px; color: #1E293B; font-weight: 600; }
+
+.assento-numero { color: #2563EB !important; }

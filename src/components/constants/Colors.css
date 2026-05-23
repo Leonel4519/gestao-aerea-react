@@ -1,10 +1,10 @@
 
 
     :root{
-        --cinza_titlecard: #75736E;
+        --cinza_titlecard: #555;
         --bordacinza:#C9C3C3;
-        --verde_iconcard: #3A730B;
-        --medio_verdbacgroudiconcard: #ddf8b9;
+        --verde_iconcard: #10b981;
+        --medio_verdbacgroudiconcard: #ecfdf5;
         --preto: rgb(0, 0, 0);
         --azul: #015AB4;
         --medio_azulbacgroundiconcard: #CADFF4;

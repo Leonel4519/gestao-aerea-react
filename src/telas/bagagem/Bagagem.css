@@ -1,0 +1,63 @@
+.seccao-bagagem{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    margin-left: 315px;
+    margin-top: 70px;
+    width: calc(100% - 315px);
+    box-sizing: border-box; 
+}
+
+.container-alerta{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.cards-container{
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.cards-container .total-peso{
+
+    grid-column: span 2;
+}
+.resgistobagagem{
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.ultimas-registadas{
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    width: 100%;
+
+    min-width: 420px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.painel-ultimosregistadas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}

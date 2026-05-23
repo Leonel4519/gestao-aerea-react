@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:wght@400;9006display=swap');
 
 .header {
-
+    position: sticky;
+    top: 0;
     padding: 10px;
     background: #FFFFFF;
-    height: 55px;
+    height: 50px;
     border-bottom: 1px solid #9d9d9d;
     box-sizing: border-box;
+    z-index: 100;
+
     
 }
 .icon-header{
@@ -16,7 +19,7 @@
 
 .header h2 svg{
     color: #0C447C;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .header h2{

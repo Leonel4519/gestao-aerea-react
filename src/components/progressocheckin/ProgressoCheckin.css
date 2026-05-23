@@ -1,0 +1,36 @@
+.progresso-checkin {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.etapa-container { display: flex; align-items: center; }
+
+.etapa { display: flex; align-items: center; gap: 8px; }
+
+.etapa-circulo {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+}
+
+.etapa span { font-size: 13px; font-weight: 600; white-space: nowrap; }
+
+.linha { margin: 0 10px; height: 2px; width: 24px; }
+
+.etapa.concluido .etapa-circulo { background: #22C55E; color: white; }
+.etapa.concluido span            { color: #16A34A; }
+.linha.concluido                 { background: #22C55E; }
+
+.etapa.ativo .etapa-circulo { border: 2px solid #2563EB; color: #2563EB; background: #EFF6FF; }
+.etapa.ativo span            { color: #2563EB; }
+.linha.ativo                 { background: #BFDBFE; }
+
+.etapa.pendente .etapa-circulo { border: 2px solid #E2E8F0; color: #94A3B8; background: #F8FAFC; }
+.etapa.pendente span            { color: #94A3B8; }
+.linha.pendente                 { background: #E2E8F0; }

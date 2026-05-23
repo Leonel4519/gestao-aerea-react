@@ -7,14 +7,25 @@ body{
     font-family:'Roboto', sans-serif;
     color:#140101;
 }
+.main-wrapper {
+    margin-left: 290px; /* largura da navbar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-.container-header{
-  margin-left: 290px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  
+.container-header {
+    position: fixed;
+    top: 0;
+    left: 230px;
+    right: 0;
+    z-index: 100;
+    background: white;
+}
 
+.page-content {
+    margin-top: 55px; /* altura do header */
+    padding: 20px;
 }
 
 .icon-voo{

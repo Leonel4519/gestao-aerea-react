@@ -1,50 +1,48 @@
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:wght@400;9006display=swap');
-
+/* Navibar.css */
 .sidenav {
-  width: 230px;
-  background: #0C447C;
-  height: 100vh;
-  position: fixed;
-  padding: 0 30px;
-  transition: all 1s;
-  top: 0;
-  left: 0;
-}
-.container-lista{
-  margin-top: 90px;
+    width: 230px;
+    background: #0C447C;
+    height: 100vh;
+    position: fixed;
+    padding: 0 20px;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    box-sizing: border-box;
 }
 
-ul {
-  padding: 0;
-}
-ul li a svg{
-  font-size: 14px;
+.container-lista { margin-top: 90px; }
+
+ul { padding: 0; margin: 0; }
+
+ul li { list-style-type: none; }
+
+ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9CB3CA;
+    font-size: 14px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    transition: background 0.15s, color 0.15s;
 }
 
-ul li{
-  list-style-type: none;
-}
-
-ul li a{
-  display: flex;
-  align-items: center;
-  color: #9CB3CA;
-  font-size: 14px;
-  padding: 10px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  gap: 5px;
-  font-family:'Roboto', sans-serif;
-}
+ul li a svg { font-size: 16px; flex-shrink: 0; }
 
 ul li a:hover,
-ul li a.active{
-  background: #255B92;
+ul li a.active {
+    background: #255B92;
+    color: #FFFFFF;
 }
 
-.title-ul{
-  color: #74A6DA;
-  font-size: 14px;
-  font-family:'Roboto', sans-serif;
+.title-ul {
+    color: #4A7FAD;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    margin: 16px 0 6px 10px;
 }

@@ -1,90 +1,102 @@
 /* UltimosCheckins.css */
-
-.ultimos-checkins{
+.ultimos-checkins {
     background: white;
-
-    border: 1px solid #E5E5E5;
-
+    border: 1px solid #E2E8F0;
     border-radius: 20px;
-
     padding: 20px;
-
-    width: 180px;
-}
-ckins-header{
-    margin-bottom: 20px;
+    width: 260px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-.checkins-header h2{
-    font-size: 20px;
-}
-
-.checkins-lista{
+.checkins-header {
     display: flex;
-
-    flex-direction: column;
-}
-
-.checkin-item{
-    display: flex;
-
     align-items: center;
-
-    gap: 15px;
-
-    padding: 20px 0;
-
-    border-bottom: 1px solid #EEEEEE;
+    justify-content: space-between;
+    margin-bottom: 4px;
 }
 
-.checkin-avatar{
-    width: 55px;
+.checkins-header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+    letter-spacing: -0.3px;
+}
 
-    height: 55px;
+.checkins-header span {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2563EB;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 20px;
+    padding: 3px 9px;
+}
 
-    border-radius: 50%;
+.checkins-lista { display: flex; flex-direction: column; }
 
+.checkin-item {
     display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 6px;
+    margin: 0 -6px;
+    border-bottom: 1px solid #F1F5F9;
+    border-radius: 10px;
+    transition: background 0.15s;
+}
+.checkin-item:last-child { border-bottom: none; }
+.checkin-item:hover { background: #FAFBFC; }
 
+.checkin-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 12px;
+    display: flex;
     justify-content: center;
-
     align-items: center;
-
-    font-weight: bold;
-
-    font-size: 20px;
-}
-
-.checkin-info h3{
-    margin: 0;
-
-    font-size: 18px;
-}
-
-.checkin-info p{
-    margin: 5px 0 0;
-
-    color: #666;
-
+    font-weight: 700;
     font-size: 13px;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
 }
 
-/* CORES */
+.checkin-avatar.azul  { background: #DBEAFE; color: #2563EB; }
+.checkin-avatar.verde { background: #DCFCE7; color: #16A34A; }
+.checkin-avatar.roxo  { background: #EDE9FE; color: #7C3AED; }
 
-.checkin-avatar.azul{
-    background: #E7F1FF;
-
-    color: #1565C0;
+.checkin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
 }
 
-.checkin-avatar.verde{
-    background: #EEF7E7;
-
-    color: #4E7A1F;
+.checkin-info h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E293B;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.checkin-avatar.roxo{
-    background: #F1EDFF;
+.checkin-info p {
+    font-size: 11px;
+    font-weight: 500;
+    color: #94A3B8;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    color: #6A4BC4;
+.checkin-time {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    color: #CBD5E1;
+    flex-shrink: 0;
 }

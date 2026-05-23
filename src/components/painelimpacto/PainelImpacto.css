@@ -1,0 +1,97 @@
+/* PainelImpacto.css */
+.painel-impacto {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.painel-impacto-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.painel-impacto h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+    letter-spacing: -0.3px;
+}
+
+.impacto-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #DC2626;
+    background: #FEE2E2;
+    border: 1px solid #FECACA;
+    border-radius: 20px;
+    padding: 3px 9px;
+}
+
+.impacto-card {
+    background: #F8FAFC;
+    border: 1px solid #EEF0F4;
+    border-left: 3px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.impacto-card-left { display: flex; flex-direction: column; gap: 2px; }
+.impacto-card span  { font-size: 12px; font-weight: 500; color: #64748B; }
+.impacto-card small { font-size: 11px; color: #94A3B8; }
+
+.impacto-card strong {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #1E293B;
+}
+
+.impacto-card.critico { border-left-color: #EF4444; }
+.impacto-card.critico strong { color: #DC2626; }
+
+.impacto-card.alerta { border-left-color: #F59E0B; }
+.impacto-card.alerta strong { color: #D97706; }
+
+.impacto-card.normal { border-left-color: #3B82F6; }
+.impacto-card.normal strong { color: #2563EB; }
+
+.impacto-divider {
+    font-size: 11px;
+    font-weight: 600;
+    color: #CBD5E1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 0 0 2px;
+}
+
+.lista-gates { display: flex; flex-direction: column; gap: 6px; }
+
+.gate-alerta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #92400E;
+}
+
+.gate-alerta-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #F59E0B;
+    flex-shrink: 0;
+}

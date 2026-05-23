@@ -1,0 +1,40 @@
+.bagagem-card {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    flex: 1;
+}
+
+.bagagem-header { margin-bottom: 12px; }
+
+.bagagem-header h3 {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 14px; font-weight: 600; color: #1E293B;
+}
+
+.bagagem-lista { display: flex; flex-direction: column; gap: 6px; }
+
+.bagagem-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px; border: 1px solid #EEF0F4;
+    border-radius: 12px;
+}
+
+.bagagem-info { display: flex; align-items: center; gap: 10px; }
+
+.bagagem-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: #FEF3C7; color: #D97706;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+
+.bagagem-info h4 { font-size: 12px; font-weight: 600; color: #1E293B; margin-bottom: 2px; }
+.bagagem-info p  { font-size: 11px; color: #94A3B8; }
+
+.bagagem-status {
+    font-size: 11px; font-weight: 600;
+    color: #16A34A; background: #DCFCE7;
+    border: 1px solid #BBF7D0; border-radius: 20px; padding: 3px 10px;
+}

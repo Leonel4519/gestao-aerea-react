@@ -1,0 +1,119 @@
+/* Gates.css */
+.gates-container {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.gates-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.gates-container h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+    letter-spacing: -0.3px;
+}
+
+.gates-count {
+    font-size: 12px;
+    font-weight: 500;
+    color: #94A3B8;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
+
+.gates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.gate-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FAFBFC;
+    border: 1px solid #EEF0F4;
+    border-radius: 14px;
+    padding: 10px 12px;
+    transition: box-shadow 0.15s, transform 0.15s;
+    cursor: default;
+}
+
+.gate-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    transform: translateY(-1px);
+}
+
+.gate-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.gate-avatar.livre    { background: #DCFCE7; color: #16A34A; }
+.gate-avatar.ocupado  { background: #DBEAFE; color: #2563EB; }
+.gate-avatar.embarque { background: #FEF3C7; color: #D97706; }
+.gate-avatar.atrasado { background: #FEE2E2; color: #DC2626; }
+
+.gate-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.gate-avatar.livre::after    { background: #22C55E; }
+.gate-avatar.ocupado::after  { background: #3B82F6; }
+.gate-avatar.embarque::after { background: #F59E0B; animation: pulse 1.4s infinite; }
+.gate-avatar.atrasado::after { background: #EF4444; animation: pulse 1.4s infinite; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+.gate-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.gate-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gate-estado {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.gate-estado.livre    { color: #16A34A; }
+.gate-estado.ocupado  { color: #2563EB; }
+.gate-estado.embarque { color: #D97706; }
+.gate-estado.atrasado { color: #DC2626; }

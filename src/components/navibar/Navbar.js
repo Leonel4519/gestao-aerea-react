@@ -35,14 +35,14 @@ const Navbar = () => {
                         </li>
                             <h1 className="title-ul">OPERAÇÕES</h1>
                         <li>
-                            <a href='/'>
+                            <Link to="/todoscheckin">
                             <FaRegCalendarCheck/>
-                            Check-in</a>
+                            Check-in</Link>
                         </li>
                         <li>
-                            <a href='/'>
+                            <Link to='/bagagem'>
                             <TbLuggage/>
-                            Bagagem</a>
+                            Bagagem</Link>
                         </li>
                         <li>
                             <a href='/'>
@@ -61,9 +61,9 @@ const Navbar = () => {
                             Passageiros</a>
                         </li>
                         <li>
-                            <a href='/'>
+                            <Link to="/relatorios">
                             <TfiBarChartAlt/>
-                            Relatórios</a>
+                            Relatórios</Link>
                         </li>
                         <li>
                             <a href='/'>

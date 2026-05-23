@@ -1,168 +1,105 @@
+// TabelaTodosVoos.jsx
 import './TabelaTodosVoos.css'
+import { useState } from 'react'
+import { voos } from '../../data/dashboardData'
+
+const obterClasse = (estado) => {
+    const mapa = {
+        'Atrasado':   'atrasado',
+        'No horário': 'confirmado',
+        'Embarque':   'embarcando',
+        'Programado': 'programado',
+    }
+    return mapa[estado] ?? 'programado'
+}
 
 const TabelaTodosVoos = () => {
+    const [filtro, setFiltro] = useState('Todos')
 
-    const voos = [
-        {
-            codigo: "LA102",
-            companhia: "TAAG",
-            rota: "LDA → LAD",
-            cidade: "Luanda · Lubango",
-            partida: "18:00",
-            chegada: "22:50",
-            portao: "B3",
-            pax: "150/150",
-            progresso: "90%",
-            status: "Embarcado"
-        },
-        {
-            codigo: "LA102",
-            companhia: "TAAG",
-            rota: "LDA → LAD",
-            cidade: "Luanda · Lubango",
-            partida: "18:00",
-            chegada: "22:50",
-            portao: "A7",
-            pax: "180/180",
-            progresso: "100%",
-            status: "Check-in"
-        },
-        {
-            codigo: "LA102",
-            companhia: "TAAG",
-            rota: "LDA → LAD",
-            cidade: "Luanda · Lubango",
-            partida: "18:00",
-            chegada: "22:50",
-            portao: "C2",
-            pax: "25/250",
-            progresso: "20%",
-            status: "Programado"
-        }
-    ]
+    const voosFiltrados = voos.filter((voo) =>
+        filtro === 'Todos' ? true : voo.estado === filtro
+    )
 
-    return(
+    const filtros = ['Todos', 'Embarque', 'Atrasado', 'No horário']
 
+    return (
         <div className="tabela-todos-voos">
-
             <div className="tabela-topo">
-
-                <h2>Todos os voos de hoje</h2>
-
+                <h2>Centro operacional de voos</h2>
                 <div className="filtros">
-
-                    <button>Todos</button>
-
-                    <button>Em andamento</button>
-
-                    <button>Atrasados</button>
-
+                    {filtros.map((f) => (
+                        <button
+                            key={f}
+                            className={filtro === f ? 'ativo' : ''}
+                            onClick={() => setFiltro(f)}
+                        >
+                            {f === 'Todos' ? 'Todos' :
+                             f === 'Embarque' ? 'Embarque' :
+                             f === 'Atrasado' ? 'Atrasados' : 'No horário'}
+                        </button>
+                    ))}
                 </div>
-
             </div>
 
             <table>
-
                 <thead>
-
                     <tr>
-
                         <th>Voo</th>
-                        <th>Rota</th>
-                        <th>Partida</th>
-                        <th>Chegada</th>
-                        <th>Portão</th>
-                        <th>Pax</th>
+                        <th>Origem</th>
+                        <th>Destino</th>
+                        <th>Hora</th>
+                        <th>Gate</th>
+                        <th>Embarque</th>
                         <th>Status</th>
-                        <th>Ações</th>
-
+                        <th>Impacto</th>
                     </tr>
-
                 </thead>
-
                 <tbody>
+                    {voosFiltrados.map((voo) => {
+                        const cls = obterClasse(voo.estado)
+                        const embarcados = voo.embarcados ?? 0
+                        const pct = voo.passageiros > 0
+                            ? (embarcados / voo.passageiros) * 100
+                            : 0
 
-                    {voos.map((voo, index) => (
-
-                        <tr key={index}>
-
-                            <td>
-
-                                <div className="voo-info">
-
-                                    <strong>{voo.codigo}</strong>
-
-                                    <span>{voo.companhia}</span>
-
-                                </div>
-
-                            </td>
-
-                            <td>
-
-                                <div className="rota-info">
-
-                                    <strong>{voo.rota}</strong>
-
-                                    <span>{voo.cidade}</span>
-
-                                </div>
-
-                            </td>
-
-                            <td>{voo.partida}</td>
-
-                            <td>{voo.chegada}</td>
-
-                            <td>{voo.portao}</td>
-
-                            <td>
-
-                                <div className="pax-info">
-
-                                    <span>{voo.pax}</span>
-
-                                    <div className="barra">
-
-                                        <div
-                                            className={`progresso ${voo.status.toLowerCase()}`}
-                                            style={{
-                                                width: voo.progresso
-                                            }}
-                                        ></div>
-
+                        return (
+                            <tr key={voo.id}>
+                                <td>
+                                    <div className="voo-info">
+                                        <strong>{voo.codigo}</strong>
+                                        <span>{voo.companhia}</span>
                                     </div>
-
-                                </div>
-
-                            </td>
-
-                            <td>
-
-                                <span className={`status ${voo.status.toLowerCase()}`}>
-                                    {voo.status}
-                                </span>
-
-                            </td>
-
-                            <td>
-
-                                <button className="btn-ver">
-                                    Ver
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-                    ))}
-
+                                </td>
+                                <td>{voo.origem}</td>
+                                <td>{voo.destino}</td>
+                                <td>{voo.hora ?? '—'}</td>
+                                <td><span className="gate-badge">{voo.gate}</span></td>
+                                <td>
+                                    <div className="pax-info">
+                                        <span className="pax-nums">{embarcados} / {voo.passageiros}</span>
+                                        <div className="barra">
+                                            <div
+                                                className={`progresso ${cls}`}
+                                                style={{ width: `${pct}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span className={`status ${cls}`}>{voo.estado}</span>
+                                </td>
+                                <td className="impacto">
+                                    {voo.estado === 'Atrasado'
+                                        ? <span className="impacto-atraso">{voo.atrasoMinutos} min</span>
+                                        : <span className="impacto-normal">{voo.embarqueStatus ?? '—'}</span>
+                                    }
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
-
             </table>
-
         </div>
-
     )
 }
 

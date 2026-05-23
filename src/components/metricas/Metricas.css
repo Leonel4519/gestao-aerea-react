@@ -1,0 +1,130 @@
+.metricas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── SCORE ── */
+.score-operacional {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.score-circulo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid #0ea5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #f0f9ff;
+}
+
+.score-circulo span {
+    color: #0ea5e9;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.score-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.score-info h2 {
+    color: #94a3b8;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.score-info strong {
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.score-info p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 460px;
+    margin: 4px 0 0;
+}
+
+/* ── KPI GRID ── */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #e2e8f0;
+    border-top: 3px solid #0ea5e9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.kpi-card:nth-child(1) { border-top-color: #10b981; }
+.kpi-card:nth-child(2) { border-top-color: #0ea5e9; }
+.kpi-card:nth-child(3) { border-top-color: #f59e0b; }
+.kpi-card:nth-child(4) { border-top-color: #8b5cf6; }
+
+.kpi-card span {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.kpi-card strong {
+    color: #0f172a;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+@media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── BARRA DE PROGRESSO NOS KPI CARDS ── */
+.kpi-progress-track {
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.kpi-progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    width: 0%;
+    transition: width 1s cubic-bezier(.4,0,.2,1);
+}

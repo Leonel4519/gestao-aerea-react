@@ -1,0 +1,161 @@
+.heatmap-operacional{
+
+    background: white;
+
+    border: 1px solid #E5E5E5;
+
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.heatmap-header{
+
+    margin-bottom: 20px;
+}
+
+.heatmap-header h2{
+
+    font-size: 20px;
+
+    color: #2B2B2B;
+
+    margin-bottom: 5px;
+}
+
+.heatmap-header p{
+
+    font-size: 14px;
+
+    color: #888;
+}
+
+.heatmap-grid{
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.heatmap-gate{
+
+    height: 90px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: white;
+
+    transition: 0.2s ease;
+}
+
+.heatmap-gate:hover{
+
+    transform: scale(1.03);
+}
+
+/* ESTADOS */
+
+.heatmap-gate.livre{
+
+    background: #22C55E;
+}
+
+.heatmap-gate.ocupado{
+
+    background: #2563EB;
+}
+
+.heatmap-gate.embarque{
+
+    background: #F59E0B;
+}
+
+.heatmap-gate.atrasado{
+
+    background: #EF4444;
+
+    animation: pulse 1.5s infinite;
+}
+
+/* LEGENDA */
+
+.heatmap-legenda{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.legenda-item{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.legenda-cor{
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+}
+
+.legenda-cor.livre{
+
+    background: #22C55E;
+}
+
+.legenda-cor.ocupado{
+
+    background: #2563EB;
+}
+
+.legenda-cor.embarque{
+
+    background: #F59E0B;
+}
+
+.legenda-cor.atrasado{
+
+    background: #EF4444;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes pulse{
+
+    0%{
+
+        opacity: 1;
+    }
+
+    50%{
+
+        opacity: 0.5;
+    }
+
+    100%{
+
+        opacity: 1;
+    }
+}

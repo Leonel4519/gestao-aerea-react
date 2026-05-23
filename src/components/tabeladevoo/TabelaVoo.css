@@ -1,117 +1,138 @@
-@import '../constants/Colors.css';
-
-.tabela-voo{
-    
+/* TabelaVoo.css */
+.tabela-voo {
+    background: white;
     border-radius: 20px;
-    border: 1px solid #C9C3C3;
+    border: 1px solid #E2E8F0;
     padding: 20px;
-    width: 69%;
+    width: 95%;
     overflow-x: auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
-.tabela-header{
+
+.tabela-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;  
-}
-.ver-todos{
-    text-decoration: none;
-
-    color: #1565C0;
-
-    font-weight: 600;
-
-    font-size: 15px;
-}
-
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-th{
-    text-align: left;
-    padding-bottom: 15px;
-    color: var(--cinza_titlecard);
-}
-td{
-    padding: 15px 0;
-
-    border-top: 1px solid #C9C3C3;
-}
-
-.status{
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.status.embarcando{
-    background: var(--medio_verdbacgroudiconcard);
-    color: #3A730B;
-}
-
-.status.atrasado{
-    background: var(--cinza_titlecard);
-    color: #982279;
-}
-
-.status.confirmado{
-    background: #E3F2FD;
-    color: #1565C0;
-}
-
-
-/* EMBARQUE */
-
-.embarque-info{
-    display: flex;
-
-    flex-direction: column;
-    
-    gap: 8px;
-}
-th:last-child,
-td:last-child{
-    text-align: right;
-}
-
-.embarque-info span{
-    font-size: 14px;
-
-    font-weight: 600;
-
-    color: #777;
-}
-
-.barra{
-    width: 130px;
-    height: 6px;
-    background: #E5E5E5;
-    margin-left: auto;
-
-   
-    border-radius: 10px;
-    border: 1px solid var(--bordacinza);
-    overflow: hidden;
-}
-
-.progresso{
-    height: 100%;
-
-    border-radius: 10px ;
-}
-
-.progresso.embarcando{
-    background: #C97A10;
-}
-
-.tabela-header svg{
-    color: var(--azul);
+    justify-content: space-between;
+    margin-bottom: 18px;
 }
 
 .tabela-header h2 {
-    align-items: center;
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+    letter-spacing: -0.3px;
 }
 
+.tabela-header h2 svg { color: #2563EB; font-size: 17px; }
 
+.ver-todos {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2563EB;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 20px;
+    padding: 5px 12px;
+    transition: background 0.15s;
+}
+.ver-todos:hover { background: #DBEAFE; }
+
+table { width: 100%; border-collapse: collapse; }
+
+thead tr { border-bottom: 1px solid #F1F5F9; }
+
+th {
+    text-align: left;
+    padding: 0 12px 12px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid #F8FAFC;
+    font-size: 13px;
+    color: #334155;
+}
+
+tbody tr:hover td { background: #FAFBFC; }
+
+.voo-codigo { font-weight: 700; color: #1E293B; letter-spacing: 0.3px; }
+
+.destino-rota { font-size: 12px; color: #64748B; }
+
+.hora { font-weight: 600; color: #1E293B; font-variant-numeric: tabular-nums; }
+
+.gate-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; height: 30px;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+}
+
+/* Status */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status.embarcando { background: #FEF3C7; color: #D97706; }
+.status.embarcando::before { background: #F59E0B; }
+
+.status.atrasado { background: #FEE2E2; color: #DC2626; }
+.status.atrasado::before { background: #EF4444; animation: pulse 1.4s infinite; }
+
+.status.confirmado { background: #DBEAFE; color: #2563EB; }
+.status.confirmado::before { background: #3B82F6; }
+
+.status.programado { background: #F1F5F9; color: #475569; }
+.status.programado::before { background: #94A3B8; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* Embarque */
+.embarque-info { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+
+.embarque-nums { font-size: 12px; font-weight: 600; color: #64748B; font-variant-numeric: tabular-nums; }
+
+.barra { width: 110px; height: 5px; background: #F1F5F9; border-radius: 10px; overflow: hidden; }
+
+.progresso { height: 100%; border-radius: 10px; }
+.progresso.embarcando { background: #F59E0B; }
+.progresso.confirmado { background: #3B82F6; }
+.progresso.atrasado   { background: #EF4444; }
+.progresso.programado { background: #94A3B8; }
+
+th:last-child, td:last-child { text-align: right; }

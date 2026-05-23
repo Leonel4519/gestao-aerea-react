@@ -1,0 +1,156 @@
+.ultimas-header{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition: 0.2s ease;
+}
+
+.ultimas-header:hover{
+
+    opacity: 0.8;
+}
+
+.ultimas-header{
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.ultimas-header-icon{
+    display: flex;
+    color:#0C447C ;
+}
+
+.ultimas-header h2{
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.lista-bagagens{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    max-height: 520px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+.bagagem-item{
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #f1f1f1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.bagagem-icon{
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ecfdf5;
+
+    color: #10b981;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+.bagagem-item.excesso .bagagem-icon{
+
+    background: #fee2e2;
+
+    color: #ef4444;
+}
+
+.bagagem-info{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+}
+
+.bagagem-info h3{
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #111827;
+
+    margin: 0;
+}
+
+.bagagem-info p{
+
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #6b7280;
+}
+
+.estado-bagagem{
+
+    min-width: 90px;
+
+    height: 36px;
+
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.estado-bagagem.ok{
+
+    background: #E8F7F1;
+
+    color: #0F8A5F;
+}
+
+.estado-bagagem.erro{
+
+    background: #FDECEC;
+
+    color: #D92D20;
+}

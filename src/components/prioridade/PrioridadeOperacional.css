@@ -1,0 +1,117 @@
+.prioridade-operacional{
+
+    background: white;
+
+    border: 1px solid #E5E5E5;
+
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.prioridade-header{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.prioridade-icon{
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 14px;
+
+    background: #FEF3C7;
+
+    color: #F59E0B;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.prioridade-header h2{
+
+    font-size: 20px;
+
+    color: #2B2B2B;
+
+    margin-bottom: 3px;
+}
+
+.prioridade-header p{
+
+    font-size: 14px;
+
+    color: #888;
+}
+
+.prioridade-lista{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.prioridade-item{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: #FAFAFA;
+
+    border: 1px solid #ECECEC;
+}
+
+.prioridade-bola{
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+}
+
+/* PRIORIDADES */
+
+.prioridade-item.alta .prioridade-bola{
+
+    background: #EF4444;
+}
+
+.prioridade-item.media .prioridade-bola{
+
+    background: #F59E0B;
+}
+
+.prioridade-item.baixa .prioridade-bola{
+
+    background: #22C55E;
+}
+
+.prioridade-item span{
+
+    font-size: 14px;
+
+    color: #2B2B2B;
+}

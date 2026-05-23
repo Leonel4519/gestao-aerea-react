@@ -1,19 +1,30 @@
-
-.voo-card-container{
-    display: flex;
-    gap: 15px;
-    
-}
-.seccao_voo{
+.seccao_voo {
     display: flex;
     flex-direction: column;
+    gap: 25px;
+    padding: 20px;
     margin-left: 315px;
     margin-top: 70px;
-   
+    width: calc(100% - 315px);
+    box-sizing: border-box;
 }
-.tabelato_dos_voos-container{ 
 
+.voo-card-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.tabelato_dos_voos-container {
+    min-width: 0;
     margin-top: 20px;
-    
-   
+}
+
+/* ÁREA COM TABELA + IMPACTO */
+.area-operacional-voo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 20px;
+    align-items: start;
 }

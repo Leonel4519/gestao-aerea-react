@@ -1,108 +1,120 @@
-
-.fluxo-checkin{
+/* FluxoCheckin.css */
+.fluxo-checkin {
     background: white;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #E2E8F0;
     border-radius: 20px;
     padding: 20px;
-    width: 180px;
+    width: 260px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-.fluxo-header{
-    margin-bottom: 20px;
-}
+.fluxo-header { margin-bottom: 16px; }
 
-.fluxo-header h2{
-    font-size: 20px;
+.fluxo-header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+    letter-spacing: -0.3px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
 }
-.fluxo-header svg{
-    color: #1565C0;
-}
+.fluxo-header svg { color: #2563EB; }
 
-.fluxo-lista{
+.fluxo-lista {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 6px;
+    position: relative;
 }
 
-.fluxo-item{
+/* linha conectora */
+.fluxo-lista::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    background: #E2E8F0;
+    z-index: 0;
+}
+
+.fluxo-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-radius: 15px;
-    padding: 0 8px;  
+    border-radius: 12px;
+    padding: 8px 10px 8px 6px;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.15s;
 }
+.fluxo-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 
-.fluxo-icon
-{  
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+.fluxo-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-.fluxo-conteudo{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    width: 100%;
-}
-
-.fluxo-conteudo h3{
-    font-size: 12px;
-}
-.fluxo-conteudo p{
     font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
-.fluxo-conteudo p{
-    margin-top: 10px;
+
+.fluxo-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.fluxo-conteudo h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1E293B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fluxo-conteudo p {
+    font-size: 11px;
+    font-weight: 500;
+    color: #94A3B8;
+    margin: 0;
 }
 
 /* CONCLUÍDO */
-
-.fluxo-item.concluido{
-    background: #EEF7E7;
-    border: 1px solid #B7D78D;
-}
-
-.fluxo-item.concluido .fluxo-icon{
-    background: #B7D78D;
-
-    color: #4E7A1F;
-}
+.fluxo-item.concluido { background: #F0FDF4; border: 1px solid #BBF7D0; }
+.fluxo-item.concluido .fluxo-icon { background: #22C55E; color: white; }
+.fluxo-item.concluido .fluxo-conteudo p { color: #16A34A; }
 
 /* ATIVO */
+.fluxo-item.ativo { background: #EFF6FF; border: 1px solid #BFDBFE; }
+.fluxo-item.ativo .fluxo-icon { background: #3B82F6; color: white; }
+.fluxo-item.ativo .fluxo-conteudo p { color: #2563EB; }
 
-.fluxo-item.ativo{
-    background: #E7F1FF;
-
-    border: 1px solid #8EB9F7;
+.fluxo-item.ativo .fluxo-icon::after {
+    content: '';
+    position: absolute;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid #93C5FD;
+    animation: ring 1.6s infinite;
 }
 
-.fluxo-item.ativo .fluxo-icon{
-    background: #8EB9F7;
-
-    color: #1565C0;
+@keyframes ring {
+    0%   { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.7); opacity: 0; }
 }
 
 /* PENDENTE */
-
-.fluxo-item.pendente{
-    background: #F5F5F5;
-
-    border: 1px solid #D9D9D9;
-}
-
-.fluxo-item.pendente .fluxo-icon{
-    background: #D9D9D9;
-
-    color: #666;
-}
+.fluxo-item.pendente { background: #F8FAFC; border: 1px solid #E2E8F0; }
+.fluxo-item.pendente .fluxo-icon { background: #E2E8F0; color: #94A3B8; }

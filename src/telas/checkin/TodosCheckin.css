@@ -1,0 +1,21 @@
+.seccao_todoscheckin {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 315px;
+    margin-top: 70px;
+    width: calc(100% - 315px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.checkin-area {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.checkin-direita { display: flex; flex-direction: column; gap: 16px; }
+
+.checkin-linha { display: flex; gap: 16px; }
