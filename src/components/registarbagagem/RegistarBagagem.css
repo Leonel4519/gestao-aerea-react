@@ -47,6 +47,7 @@
     padding: 10px;
     text-align: center;
     margin-bottom: 20px;
+    
 }
 
 .peso-card h1{
@@ -72,6 +73,7 @@
 .peso-card.ok{
     background: #ecfdf5;
     color: #1FA971;
+    border: 1px solid #91fad0;
 }
 
 /* ERRO */

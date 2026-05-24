@@ -1,11 +1,12 @@
 .seccao_voo {
     display: flex;
     flex-direction: column;
+    padding-top: 70px;
     gap: 25px;
     padding: 20px;
-    margin-left: 315px;
+    margin-left: 280px;
     margin-top: 70px;
-    width: calc(100% - 315px);
+    width: calc(100% - 300px);
     box-sizing: border-box;
 }
 
@@ -17,7 +18,6 @@
 
 .tabelato_dos_voos-container {
     min-width: 0;
-    margin-top: 20px;
 }
 
 /* ÁREA COM TABELA + IMPACTO */

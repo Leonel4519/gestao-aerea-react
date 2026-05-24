@@ -97,7 +97,7 @@ const Embarque = () => {
                                                 </div>
                                                 <div className='pax-info'>
                                                     <span className='pax-nome'>{p.nome}</span>
-                                                    <span className='pax-detalhe'>Assento {p.assento} · {p.bagagem} 🧳</span>
+                                                    <span className='pax-detalhe'>Assento {p.assento} · {p.bagagem} </span>
                                                 </div>
                                                 <button
                                                     className='btn-embarcar'

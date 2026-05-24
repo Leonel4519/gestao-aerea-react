@@ -1,10 +1,11 @@
 import './Painel.css'
 import { useVoos } from '../../context/VooContext'
+import { useBagagem } from '../../context/BagagemContext'
+import { useCheckin } from '../../context/CheckinContext'
 import StatsCard from '../../components/statscard/StatsCard'
 import { FaRegCalendarCheck } from 'react-icons/fa'
 import { IoAirplaneOutline } from "react-icons/io5"
 import { TbLuggage } from 'react-icons/tb'
-import { RiCustomerServiceLine } from 'react-icons/ri'
 import { IoAlertCircleOutline } from "react-icons/io5"
 import { FiAlertTriangle } from "react-icons/fi"
 import TabelaVoo from '../../components/tabeladevoo/TabelaVoo'
@@ -14,11 +15,23 @@ import Alerta from '../../components/alerta/Alerta'
 import Gates from '../../components/gates/Gates'
 import PainelEmbarque from '../../components/embarque/PainelEmbarque'
 import PrioridadeOperacional from '../../components/prioridade/PrioridadeOperacional'
-import { checkinsHoje, bagagens, excessoBagagem, atendimentos } from '../../data/dashboardData'
+
+const LIMITE = 30
 
 const Painel = () => {
-    const { voos } = useVoos()
+    const { voos }        = useVoos()
+    const { bagagens }    = useBagagem()
+    const { passageiros } = useCheckin()
 
+    // BAGAGEM
+    const totalBagagens   = bagagens.length
+    const bagagensExcesso = bagagens.filter(b => b.peso > LIMITE)
+
+    // CHECK-IN
+    const checkinsFeitos  = passageiros.filter(p => p.checkinFeito).length
+    const checkinsPendentes = passageiros.filter(p => !p.checkinFeito).length
+
+    // VOOS
     const voosAtrasados = voos.filter(voo => voo.estado === 'Atrasado')
 
     const impactoAtrasos = voosAtrasados.map(
@@ -43,7 +56,7 @@ const Painel = () => {
                         titulo="Impacto operacional"
                         mensagem={impactoAtrasos}
                         icon={<FiAlertTriangle/>}
-                        variante="impacto"
+                        variante="warning"
                     />
                 </div>
             )}
@@ -54,46 +67,40 @@ const Painel = () => {
                         titulo="Conflito de gates"
                         mensagem={mensagemGate}
                         icon={<FiAlertTriangle/>}
-                        variante="conflito"
+                        variante="danger"
                     />
                 </div>
             )}
-            
+
             <div className='container-prioridade-operacional'>
-            <PrioridadeOperacional/>
+                <PrioridadeOperacional/>
             </div>
 
             <div className="cards-container">
                 <StatsCard
                     titulo="Check-ins hoje"
-                    value={checkinsHoje}
-                    subtitulo="+12% vs ontem"
+                    value={checkinsFeitos}
+                    subtitulo={`${checkinsPendentes} pendentes`}
                     icon={<FaRegCalendarCheck/>}
                     variante="checkin"
                 />
                 <StatsCard
                     titulo="Voos em andamento"
                     value={voos.length}
-                    subtitulo="voos ativos hoje"
+                    subtitulo={`${voosAtrasados.length} atrasados`}
                     icon={<IoAirplaneOutline/>}
                     variante="voo"
                 />
-
                 <StatsCard
                     titulo="Bagagens registadas"
-                    value={bagagens}
-                    subtitulo={`${excessoBagagem} com excesso`}
+                    value={totalBagagens}
+                    subtitulo={bagagensExcesso.length > 0
+                        ? `${bagagensExcesso.length} com excesso`
+                        : 'Sem excesso'
+                    }
                     icon={<TbLuggage/>}
-                    icon2={<IoAlertCircleOutline/>}
+                    icon2={bagagensExcesso.length > 0 ? <IoAlertCircleOutline/> : null}
                     variante="bagagens"
-                />
-
-                <StatsCard
-                    titulo="Atendimentos abertos"
-                    value={atendimentos}
-                    subtitulo="1 urgente pendente"
-                    icon={<RiCustomerServiceLine/>}
-                    variante="atendimento"
                 />
             </div>
 

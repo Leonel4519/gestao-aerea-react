@@ -100,3 +100,36 @@
     color: #CBD5E1;
     flex-shrink: 0;
 }
+.checkins-vazio {
+    font-size: 12px;
+    color: #94A3B8;
+    text-align: center;
+    padding: 16px;
+    background: #F8FAFC;
+    border-radius: 10px;
+    border: 1px dashed #E2E8F0;
+}
+
+.checkins-pendentes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #92400E;
+}
+
+.checkins-pendentes button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #D97706;
+    cursor: pointer;
+}
+.checkins-pendentes button:hover { text-decoration: underline; }

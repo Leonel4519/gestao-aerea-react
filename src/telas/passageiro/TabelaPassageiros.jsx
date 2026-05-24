@@ -33,7 +33,7 @@ const TabelaPassageiros = () => {
         
             
             <div className='tabela-header'>
-                <h2><IoPeopleOutline /> Passageiros</h2>
+                <h2> Passageiros</h2>
                 <a href='/' className='ver-todos'>Ver todos <FaArrowRight /></a>
             </div>
 

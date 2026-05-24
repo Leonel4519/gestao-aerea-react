@@ -74,8 +74,7 @@
 .stats-card.voo_em_atendimento .stats-icon,
 .stats-card.voo_atrasados .stats-icon,
 .stats-card.voo_concluidos .stats-icon {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    background: #ffffff;
 }
 
 .stats-card.voo_programados h1   { color: #1E293B; font-size: 30px; }
@@ -87,8 +86,7 @@
 .stats-card.total-registadas .stats-icon,
 .stats-card.total-excesso .stats-icon,
 .stats-card.total-peso .stats-icon {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    background: #ffffff;
 }
 
 .stats-card.total-registadas h1 { font-size: 25px; }

@@ -50,7 +50,7 @@
 .impacto-card small { font-size: 11px; color: #94A3B8; }
 
 .impacto-card strong {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
     letter-spacing: -1px;
     color: #1E293B;
@@ -59,7 +59,7 @@
 .impacto-card.critico { border-left-color: #EF4444; }
 .impacto-card.critico strong { color: #DC2626; }
 
-.impacto-card.alerta { border-left-color: #F59E0B; }
+.impacto-card.alerta { border-color: #F59E0B; }
 .impacto-card.alerta strong { color: #D97706; }
 
 .impacto-card.normal { border-left-color: #3B82F6; }
