@@ -46,3 +46,68 @@ ul li a.active {
     font-family: 'Roboto', sans-serif;
     margin: 16px 0 6px 10px;
 }
+
+
+.logout-container{
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.usuario-info{
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 12px;
+
+    padding-left: 5px;
+}
+
+.usuario-nome{
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.usuario-perfil{
+
+    color: rgba(255,255,255,0.6);
+
+    font-size: 12px;
+
+    text-transform: capitalize;
+}
+
+.btn-logout{
+
+    width: 100%;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.btn-logout:hover{
+
+    background: rgba(255,255,255,0.1);
+}

@@ -1,0 +1,185 @@
+/* Embarque.css */
+
+/* ── LAYOUT BASE ── */
+.seccao-embarque {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 315px;
+    margin-top: 70px;
+    width: calc(100% - 315px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ── CONTAINER ── */
+.embarque {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* ── TOPO ── */
+.embarque-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.embarque-topo h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.ver-todos {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0ea5e9;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+.ver-todos:hover { gap: 10px; }
+
+/* ── GRID DE CARDS ── */
+.embarque-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+/* ── VOO CARD ── */
+.voo-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.voo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.voo-card.embarcando { border-color: #bfdbfe; background: #f0f9ff; }
+.voo-card.atrasado   { border-color: #fecaca; background: #fff5f5; }
+
+/* ── CABEÇALHO DO CARD ── */
+.voo-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.voo-card-info { display: flex; align-items: center; gap: 10px; }
+.voo-codigo    { font-size: 15px; font-weight: 800; color: #0f172a; }
+.voo-destino   { font-size: 13px; color: #64748b; }
+
+.voo-gate {
+    font-size: 12px; font-weight: 700;
+    color: #f59e0b; background: #fef3c7;
+    border: 1px solid #fde68a; border-radius: 6px; padding: 2px 8px;
+}
+
+/* ── STATUS ── */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+}
+.status.embarcando { background: #dbeafe; color: #1e40af; }
+.status.confirmado  { background: #d1fae5; color: #065f46; }
+.status.atrasado    { background: #fee2e2; color: #991b1b; }
+.status.programado  { background: #f1f5f9; color: #475569; }
+
+/* ── PROGRESSO ── */
+.voo-progresso { padding: 14px 18px 10px; }
+
+.voo-progresso-nums {
+    display: flex; gap: 12px;
+    font-size: 12px; font-weight: 600;
+    margin-bottom: 8px; flex-wrap: wrap;
+}
+.voo-progresso-nums span:nth-child(1) { color: #10b981; }
+.voo-progresso-nums span:nth-child(2) { color: #0ea5e9; }
+.sem-checkin-count { color: #f59e0b !important; }
+
+.barra { height: 7px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
+.progresso { height: 100%; border-radius: 99px; transition: width 0.6s cubic-bezier(.4,0,.2,1); }
+
+.progresso.embarcando { background: #0ea5e9; }
+.progresso.confirmado  { background: #10b981; }
+.progresso.atrasado    { background: #f87171; }
+.progresso.programado  { background: #94a3b8; }
+
+.pct-label { font-size: 11px; color: #94a3b8; font-weight: 600; text-align: right; }
+
+/* ── LISTA DE PASSAGEIROS ── */
+.pax-lista { padding: 0 18px 14px; }
+
+.pax-lista-titulo {
+    font-size: 11px; font-weight: 700;
+    color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 10px; padding-top: 10px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.pax-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid #f1f5f9;
+}
+.pax-row:last-child { border-bottom: none; }
+
+.pax-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    color: #fff; font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.pax-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.pax-nome   { font-size: 13px; font-weight: 700; color: #0f172a; }
+.pax-detalhe { font-size: 11px; color: #94a3b8; }
+
+/* ── BOTÃO EMBARCAR ── */
+.btn-embarcar {
+    background: #eff6ff; color: #2563eb;
+    border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 6px 14px; font-size: 12px; font-weight: 700;
+    cursor: pointer; font-family: inherit;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap; flex-shrink: 0;
+}
+.btn-embarcar:hover  { background: #dbeafe; transform: scale(1.03); }
+.btn-embarcar:active { transform: scale(0.97); }
+
+/* ── ALERTAS ── */
+.alerta-sem-checkin {
+    margin: 0 18px 14px; padding: 8px 12px;
+    background: #fef3c7; border: 1px solid #fde68a;
+    border-radius: 8px; font-size: 12px; color: #92400e; font-weight: 600;
+}
+
+.todos-embarcados {
+    margin: 0 18px 14px; padding: 8px 12px;
+    background: #d1fae5; border: 1px solid #a7f3d0;
+    border-radius: 8px; font-size: 12px; color: #065f46; font-weight: 700;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 768px) {
+    .embarque-grid { grid-template-columns: 1fr; }
+    .seccao-embarque { margin-left: 0; width: 100%; }
+}

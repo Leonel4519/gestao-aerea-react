@@ -7,7 +7,7 @@
     padding: 20px;
     margin-left: 280px;
     margin-top: 70px;
-    width: calc(100% - 315px);
+    width: calc(100% - 300px);
     box-sizing: border-box;
 }
 
@@ -19,6 +19,13 @@
 
     align-items: flex-start;
 
+    width: 100%;
+}
+/* ALERTA PRIORIDADE OPERACIONAL*/
+
+.container-prioridade-operacional{
+    display: flex;
+    align-items: flex-start;
     width: 100%;
 }
 
@@ -37,8 +44,8 @@
 .tabela-area {
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px; /* direita mais estreita */
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 300px; 
+    gap: 30px;
     align-items: start;
 }
 
@@ -47,11 +54,8 @@
 .painel-esquerdo{
 
     display: flex;
-    
     flex-direction: column;
-    
     gap: 20px;
-
     min-width: 0;
 }
 
@@ -62,7 +66,7 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    margin-left: 0; /* tira o margin-left: 80px */
+    margin-left: 0; 
 }
 
 /* RESPONSIVO */

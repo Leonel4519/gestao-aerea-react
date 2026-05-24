@@ -1,75 +1,33 @@
 import './ProgressoCheckin.css'
 
-const ProgressoCheckin = () => {
-
+const ProgressoCheckin = ({ etapa = 0 }) => {
     const etapas = [
-
-        {
-            numero: "✓",
-            titulo: "Bilhete",
-            status: "concluido"
-        },
-
-        {
-            numero: "✓",
-            titulo: "Documento",
-            status: "concluido"
-        },
-
-        {
-            numero: "3",
-            titulo: "Bagagem",
-            status: "ativo"
-        },
-
-        {
-            numero: "4",
-            titulo: "Assento",
-            status: "pendente"
-        },
-
-        {
-            numero: "5",
-            titulo: "Embarque",
-            status: "pendente"
-        }
-
+        { titulo: 'Bilhete' },
+        { titulo: 'Documento' },
+        { titulo: 'Bagagem' },
+        { titulo: 'Assento' },
+        { titulo: 'Embarque' }
     ]
 
-    return(
-
+    return (
         <div className="progresso-checkin">
-
-            {etapas.map((etapa, index) => (
-
-                <div className="etapa-container" key={index}>
-
-                    <div className={`etapa ${etapa.status}`}>
-
-                        <div className="etapa-circulo">
-
-                            {etapa.numero}
-
+            {etapas.map((e, index) => {
+                const status = index < etapa ? 'concluido' : index === etapa ? 'ativo' : 'pendente'
+                return (
+                    <div className="etapa-container" key={index}>
+                        <div className={`etapa ${status}`}>
+                            <div className="etapa-circulo">
+                                {index < etapa ? '✓' : index + 1}
+                            </div>
+                            <span>{e.titulo}</span>
                         </div>
-
-                        <span>
-                            {etapa.titulo}
-                        </span>
-
+                        {index < etapas.length - 1 && (
+                            <div className={`linha ${status}`}></div>
+                        )}
                     </div>
-
-                    {index < etapas.length - 1 && (
-
-                        <div className={`linha ${etapa.status}`}></div>
-
-                    )}
-
-                </div>
-
-            ))}
-
+                )
+            })}
         </div>
-
     )
 }
 

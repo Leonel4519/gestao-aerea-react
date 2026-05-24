@@ -1,3 +1,4 @@
+/* LAYOUT BASE */
 .seccao_todoscheckin {
     display: flex;
     flex-direction: column;
@@ -9,13 +10,252 @@
     box-sizing: border-box;
 }
 
-.checkin-area {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 16px;
-    align-items: start;
+/* LISTA */
+.checkin-lista-container {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    width: 100%;
 }
 
-.checkin-direita { display: flex; flex-direction: column; gap: 16px; }
+.checkin-lista-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
 
-.checkin-linha { display: flex; gap: 16px; }
+.checkin-lista-header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.checkin-lista-header p {
+    font-size: 12px;
+    color: #94A3B8;
+    margin-top: 2px;
+}
+
+.checkin-busca {
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 13px;
+    color: #1E293B;
+    outline: none;
+    width: 280px;
+    transition: border 0.15s;
+}
+.checkin-busca:focus { border-color: #3B82F6; }
+
+.checkin-lista { display: flex; flex-direction: column; gap: 8px; }
+
+.checkin-lista-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid #EEF0F4;
+    border-radius: 14px;
+    background: #FAFBFC;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.checkin-lista-item.pendente:hover {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+}
+.checkin-lista-item.concluido {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.checkin-lista-avatar {
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    background: #DBEAFE; color: #2563EB;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+
+.checkin-lista-info {
+    display: flex; flex-direction: column; gap: 2px; flex: 1;
+}
+.checkin-lista-info strong { font-size: 13px; font-weight: 600; color: #1E293B; }
+.checkin-lista-info span   { font-size: 11px; color: #94A3B8; }
+
+.checkin-lista-direita {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+}
+
+.checkin-lista-assento {
+    font-size: 12px; font-weight: 700; color: #2563EB;
+    background: #EFF6FF; border: 1px solid #BFDBFE;
+    border-radius: 6px; padding: 2px 8px;
+}
+
+.checkin-lista-status.feito {
+    font-size: 11px; font-weight: 600;
+    color: #16A34A; background: #DCFCE7;
+    border: 1px solid #BBF7D0; border-radius: 20px; padding: 2px 8px;
+}
+.checkin-lista-status.pendente {
+    font-size: 11px; font-weight: 600;
+    color: #D97706; background: #FEF3C7;
+    border: 1px solid #FDE68A; border-radius: 20px; padding: 2px 8px;
+}
+
+/* FLUXO */
+.checkin-fluxo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.checkin-fluxo-topo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-voltar {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px; font-weight: 600;
+    color: #475569; cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+.btn-voltar:hover { background: #F1F5F9; }
+
+.checkin-passageiro-nome {
+    font-size: 15px; font-weight: 600; color: #1E293B;
+}
+
+/* ETAPA */
+.checkin-etapa-container {
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.etapa-titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.etapa-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.etapa-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+.etapa-row span   { color: #94A3B8; font-weight: 500; }
+.etapa-row strong { color: #1E293B; font-weight: 600; }
+
+.etapa-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.etapa-badge.ok   { background: #F0FDF4; color: #16A34A; border: 1px solid #BBF7D0; }
+.etapa-badge.erro { background: #FEF2F2; color: #DC2626; border: 1px solid #FECACA; }
+
+.etapa-conteudo { display: flex; flex-direction: column; gap: 12px; }
+
+.etapa-lista { display: flex; flex-direction: column; gap: 8px; }
+
+.etapa-bagagem-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #F8FAFC;
+    border: 1px solid #EEF0F4;
+    border-radius: 12px;
+}
+.etapa-bagagem-icon {
+    width: 34px; height: 34px;
+    background: #FEF3C7; color: #D97706;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+}
+.etapa-bagagem-item div { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.etapa-bagagem-item strong { font-size: 13px; color: #1E293B; }
+.etapa-bagagem-item span   { font-size: 11px; color: #94A3B8; }
+
+.assento-numero { color: #2563EB !important; }
+
+/* CARTÃO EMBARQUE NA ETAPA 4 */
+.cartao-info {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartao-item { display: flex; flex-direction: column; gap: 3px; }
+.cartao-item span   { font-size: 11px; color: #2563EB; font-weight: 500; }
+.cartao-item strong { font-size: 20px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.5px; }
+.cartao-item p      { font-size: 11px; color: #64A0D4; }
+
+/* BOTÕES */
+.etapa-botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btn-imprimir {
+    display: flex; align-items: center; gap: 6px;
+    height: 40px; padding: 0 20px;
+    border: 1px solid #E2E8F0; border-radius: 12px;
+    background: white; font-size: 13px; font-weight: 600;
+    color: #475569; cursor: pointer; transition: background 0.15s;
+}
+.btn-imprimir:hover { background: #F8FAFC; }
+
+.btn-confirmar {
+    display: flex; align-items: center; gap: 6px;
+    height: 40px; padding: 0 24px;
+    border: none; border-radius: 12px;
+    background: #2563EB; color: white;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+}
+.btn-confirmar:hover { background: #1D4ED8; }
+
+.bagagem-status.ok     { font-size: 11px; font-weight: 600; color: #16A34A; background: #DCFCE7; border: 1px solid #BBF7D0; border-radius: 20px; padding: 3px 10px; }
+.bagagem-status.excesso { font-size: 11px; font-weight: 600; color: #DC2626; background: #FEE2E2; border: 1px solid #FECACA; border-radius: 20px; padding: 3px 10px; }

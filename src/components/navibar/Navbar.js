@@ -1,80 +1,256 @@
 import './Navibar.css';
+
 import Logo from "../logo/Logo";
-import {IoMdTime} from 'react-icons/io';
-import {MdOutlineDashboard} from 'react-icons/md'
-import {FaRegCalendarCheck} from 'react-icons/fa'
-import {TbLuggage} from 'react-icons/tb'
-import {MdFlightTakeoff} from 'react-icons/md'
-import {RiCustomerServiceLine} from 'react-icons/ri'
-import {IoPersonOutline} from 'react-icons/io5'
-import {IoSettingsOutline} from 'react-icons/io5'
-import {TfiBarChartAlt} from 'react-icons/tfi'
+
+import { IoMdTime } from 'react-icons/io';
+
+import { MdOutlineDashboard } from 'react-icons/md';
+
+import { FaRegCalendarCheck } from 'react-icons/fa';
+
+import { TbLuggage } from 'react-icons/tb';
+
+import { MdFlightTakeoff } from 'react-icons/md';
+
+import { IoPersonOutline } from 'react-icons/io5';
+
+import { TfiBarChartAlt } from 'react-icons/tfi';
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+    const usuario = JSON.parse(
+
+        localStorage.getItem('usuario')
+    )
+
+    const perfil = usuario?.perfil
+
+    const sair = () => {
+
+        localStorage.removeItem('usuario')
+
+        window.location.reload()
+    }
+
     return(
+
         <div className="sidenav">
+
             <Logo/>
+
             <div className="container-lista">
+
                 <ul>
-                    <h1 className="title-ul">PRINCIPAL</h1>
-                        
-                        <li>
-                            <Link to="/">
+
+                    {/* PRINCIPAL */}
+
+                    <h1 className="title-ul">
+
+                        PRINCIPAL
+
+                    </h1>
+
+                    <li>
+
+                        <Link to="/">
+
                             <MdOutlineDashboard/>
-                            painel
-                            </Link>
-                        </li>
+
+                            Painel
+
+                        </Link>
+
+                    </li>
+
+                    {
+
+                        perfil === 'supervisor'
+
+                        &&
+
                         <li>
-                        
+
                             <Link to="/voo">
-                            <IoMdTime/>
-                            Voo hoje
+
+                                <IoMdTime/>
+
+                                Voos
+
                             </Link>
-                            
+
                         </li>
-                            <h1 className="title-ul">OPERAÇÕES</h1>
+                    }
+
+                    {/* OPERAÇÕES */}
+
+                    <h1 className="title-ul">
+
+                        OPERAÇÕES
+
+                    </h1>
+
+                    {
+
+                        (
+
+                            perfil === 'supervisor'
+
+                            ||
+
+                            perfil === 'checkin'
+
+                        )
+
+                        &&
+
                         <li>
+
                             <Link to="/todoscheckin">
-                            <FaRegCalendarCheck/>
-                            Check-in</Link>
+
+                                <FaRegCalendarCheck/>
+
+                                Check-in
+
+                            </Link>
+
                         </li>
+                    }
+
+                    {
+
+                        (
+
+                            perfil === 'supervisor'
+
+                            ||
+
+                            perfil === 'bagagem'
+
+                        )
+
+                        &&
+
                         <li>
-                            <Link to='/bagagem'>
-                            <TbLuggage/>
-                            Bagagem</Link>
+
+                            <Link to="/bagagem">
+
+                                <TbLuggage/>
+
+                                Bagagem
+
+                            </Link>
+
                         </li>
+                    }
+
+                    {
+
+                        (
+
+                            perfil === 'supervisor'
+
+                            ||
+
+                            perfil === 'embarque'
+
+                        )
+
+                        &&
+
                         <li>
-                            <a href='/'>
-                            <MdFlightTakeoff/>
-                            Embarque</a>
+
+                            <Link to="/embarque">
+
+                                <MdFlightTakeoff/>
+
+                                Embarque
+
+                            </Link>
+
                         </li>
-                        <li>
-                            <a href='/'>
-                            <RiCustomerServiceLine/>
-                            Atendimento</a>
-                        </li>
-                            <h1 className="title-ul">GESTÃO</h1>
-                        <li>
-                            <a href='/'>
-                            <IoPersonOutline/>
-                            Passageiros</a>
-                        </li>
-                        <li>
-                            <Link to="/relatorios">
-                            <TfiBarChartAlt/>
-                            Relatórios</Link>
-                        </li>
-                        <li>
-                            <a href='/'>
-                            <IoSettingsOutline/>
-                            Configurações</a>
-                        </li>
+                    }
+
+                    {/* ADMINISTRAÇÃO */}
+
+                    {
+
+                        perfil === 'supervisor'
+
+                        &&
+
+                        <>
+
+                            <h1 className="title-ul">
+
+                                ADMINISTRAÇÃO
+
+                            </h1>
+
+                            <li>
+
+                                <Link to="/passageiros">
+
+                                    <IoPersonOutline/>
+
+                                    Passageiros
+
+                                </Link>
+
+                            </li>
+
+                            <li>
+
+                                <Link to="/relatorios">
+
+                                    <TfiBarChartAlt/>
+
+                                    Relatórios
+
+                                </Link>
+
+                            </li>
+
+                        </>
+
+                    }
+
                 </ul>
+
+                <div className='logout-container'>
+
+                    <div className='usuario-info'>
+
+                        <span className='usuario-nome'>
+
+                            {usuario?.nome}
+
+                        </span>
+
+                        <span className='usuario-perfil'>
+
+                            {usuario?.perfil}
+
+                        </span>
+
+                    </div>
+
+                    <button
+                        className='btn-logout'
+                        onClick={sair}
+                    >
+
+                        Sair
+
+                    </button>
+
+                </div>
+
             </div>
+
         </div>
     )
 }
-
 
 export default Navbar

@@ -1,0 +1,162 @@
+/* ── LAYOUT ── */
+.seccao-passageiros {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 315px;
+    margin-top: 70px;
+    width: calc(100% - 315px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ── CONTAINER ── */
+.tabela-passageiros {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* ── CABEÇALHO ── */
+.tabela-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.tabela-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.ver-todos {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0ea5e9;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+.ver-todos:hover { gap: 10px; }
+
+/* ── PESQUISA ── */
+.tabela-search {
+    padding: 12px 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.tabela-search input {
+    width: 100%;
+    padding: 9px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #0f172a;
+    background: #f8fafc;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+.tabela-search input:focus { border-color: #0ea5e9; background: #fff; }
+.tabela-search input::placeholder { color: #94a3b8; }
+
+/* ── TABELA ── */
+.tabela-passageiros table { width: 100%; border-collapse: collapse; }
+
+.tabela-passageiros thead th {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela-passageiros tbody tr { transition: background 0.15s; }
+.tabela-passageiros tbody tr:hover { background: #f8fafc; }
+
+.tabela-passageiros tbody td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.tabela-passageiros tbody tr:last-child td { border-bottom: none; }
+
+/* ── PASSAGEIRO ── */
+.passageiro-info { display: flex; align-items: center; gap: 12px; }
+
+.avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    color: #fff;
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; letter-spacing: 0.5px;
+}
+
+.passageiro-nome { font-weight: 700; color: #0f172a; font-size: 13px; }
+.passageiro-id   { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+
+/* ── BADGES ── */
+.voo-badge {
+    background: #eff6ff; color: #2563eb;
+    border: 1px solid #bfdbfe; border-radius: 6px;
+    padding: 3px 10px; font-size: 12px; font-weight: 700;
+}
+
+.assento {
+    background: #fefce8; color: #92400e;
+    border: 1px solid #fde68a; border-radius: 6px;
+    padding: 3px 10px; font-size: 12px; font-weight: 700;
+}
+
+.passaporte { display: flex; align-items: center; gap: 6px; color: #64748b; font-size: 12px; }
+.bagagem    { display: flex; align-items: center; gap: 6px; color: #64748b; font-size: 13px; }
+
+/* ── STATUS ── */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.status.embarcado { background: #d1fae5; color: #065f46; }
+.status.checkin   { background: #dbeafe; color: #1e40af; }
+.status.pendente  { background: #fef3c7; color: #92400e; }
+
+/* ── SEM RESULTADOS ── */
+.sem-resultados {
+    text-align: center; color: #94a3b8;
+    padding: 32px !important; font-size: 14px;
+}
+
+/* ── RODAPÉ ── */
+.tabela-footer {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 12px;
+    background: #f8fafc; border-top: 1px solid #e2e8f0;
+    font-size: 12px; color: #64748b; font-weight: 600;
+}
+.tabela-footer span:nth-child(1) { color: #0ea5e9; }
+.tabela-footer span:nth-child(3) { color: #10b981; }
+.tabela-footer span:nth-child(5) { color: #f59e0b; }

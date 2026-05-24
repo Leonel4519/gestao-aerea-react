@@ -61,11 +61,11 @@
 /* VARIANTES PRINCIPAIS */
 .stats-card.checkin .stats-icon   { background: #DCFCE7; color: #16A34A; }
 .stats-card.voo .stats-icon       { background: #DBEAFE; color: #2563EB; }
-.stats-card.bagagem .stats-icon   { background: #FEF3C7; color: #D97706; }
+.stats-card.bagagens .stats-icon   { background: #FEF3C7; color: #D97706; }
 .stats-card.atendimento .stats-icon { background: #FEE2E2; color: #DC2626; }
 
 .stats-card.checkin p, .stats-card.voo p { color: #64748B; }
-.stats-card.bagagem p   { color: #DC2626; }
+.stats-card.bagagens p   { color: #DC2626; }
 .stats-card.atendimento p { color: #DC2626; }
 .stats-card.atendimento h1 { color: #DC2626; }
 

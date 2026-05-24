@@ -1,13 +1,12 @@
 // Voo.jsx
 import './Voo.css'
-import { useState } from 'react'
 import StatsCard from '../../components/statscard/StatsCard'
 import TabelaTodosVoos from '../../components/Tabelatodososvoos/TabelaTodosVoos'
 import PainelImpacto from '../../components/painelimpacto/PainelImpacto'
-import { voos as voosIniciais } from '../../data/dashboardData'
+import { useVoos } from '../../context/VooContext'
 
 const Voo = () => {
-    const [voos, setVoos] = useState(voosIniciais)
+    const { voos } = useVoos()
 
     const voosAtrasados   = voos.filter(voo => voo.estado === 'Atrasado')
     const voosEmbarque    = voos.filter(voo => voo.estado === 'Embarque')
@@ -54,9 +53,8 @@ const Voo = () => {
 
             <div className='area-operacional-voo'>
                 <div className='tabelato_dos_voos-container'>
-                    <TabelaTodosVoos voos={voos} setVoos={setVoos} />
+                    <TabelaTodosVoos/>
                 </div>
-
                 <PainelImpacto
                     voosAtrasados={voosAtrasados}
                     passageirosAfectados={passageirosAfectados}

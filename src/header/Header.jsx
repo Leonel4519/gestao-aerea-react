@@ -6,6 +6,8 @@ import { IoAirplaneOutline } from "react-icons/io5";
 import {FaRegCalendarCheck} from 'react-icons/fa'
 import {TbLuggage} from 'react-icons/tb'
 import {TfiBarChartAlt} from 'react-icons/tfi'
+import {IoPersonOutline} from 'react-icons/io5'
+import {MdFlightTakeoff} from 'react-icons/md'
 
 const Header = ()=> {
      const location = useLocation()
@@ -31,6 +33,14 @@ const Header = ()=> {
         "/relatorios":{
             titulo:"Relatorios",
             icon: <TfiBarChartAlt/>
+        },
+        "/passageiros":{
+            titulo:"Passageiros",
+            icon: <IoPersonOutline/>
+        },
+        "/embarque":{
+            titulo:"Embarque",
+            icon: <MdFlightTakeoff/>
         }
     }
     return(
