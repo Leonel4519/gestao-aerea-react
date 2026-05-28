@@ -1,13 +1,18 @@
+// RegistarBagagem.jsx
 import './RegistarBagagem.css'
 import { useState } from 'react'
 import { TbLuggage } from 'react-icons/tb'
 import { FiPlus } from "react-icons/fi"
 import { useCheckin } from '../../context/CheckinContext'
+import { useBagagem } from '../../context/BagagemContext'
+import { useNotificacao } from '../../context/NotificacaoContext'
 
 const LIMITE = 30
 
-const RegistrarBagagem = ({ peso, setPeso, adicionarBagagem, totalBagagens }) => {
-    const { passageiros } = useCheckin()
+const RegistrarBagagem = ({ peso, setPeso }) => {
+    const { passageiros }                  = useCheckin()
+    const { bagagens, adicionarBagagem }   = useBagagem()
+    const { adicionarNotificacao }       = useNotificacao()
 
     const [passageiroId, setPassageiroId] = useState('')
     const [rota, setRota]                 = useState('')
@@ -22,6 +27,7 @@ const RegistrarBagagem = ({ peso, setPeso, adicionarBagagem, totalBagagens }) =>
         setPassageiroId(id)
         const p = passageiros.find(p => p.id === id)
         if (p) setRota(`${p.voo} · LDA → ${p.destino?.slice(0,3).toUpperCase()}`)
+        else setRota('')
     }
 
     const registrarBagagem = () => {
@@ -37,20 +43,28 @@ const RegistrarBagagem = ({ peso, setPeso, adicionarBagagem, totalBagagens }) =>
         }
 
         const passageiro = passageiros.find(p => p.id === Number(passageiroId))
-        const codigo     = `BAG-${String(totalBagagens + 1).padStart(3, '0')}`
+        const codigo     = `BAG-${String(bagagens.length + 1).padStart(3, '0')}`
 
         adicionarBagagem({
-            id:           totalBagagens + 1,
+            id:           Date.now(),
             passageiroId: Number(passageiroId),
             nome:         passageiro.nome,
-            peso:         peso,
+            peso:         Number(peso),
             tipo:         tipo,
             rota:         rota,
             codigo:       codigo
         })
+        
+
+        adicionarNotificacao({
+            tipo:      'bagagem',
+            titulo:    'Nova bagagem registada',
+            mensagem:  `${passageiro.nome} — ${tipo} · ${peso} kg`,
+            destino:   'checkin'
+        })
 
         setPassageiroId('')
-        setPeso('')
+        setPeso(0)
         setRota('')
         setErro('')
     }
@@ -74,7 +88,7 @@ const RegistrarBagagem = ({ peso, setPeso, adicionarBagagem, totalBagagens }) =>
                             </option>
                         ))}
                     </select>
-                    <select value={rota} onChange={e => setRota(e.target.value)} disabled>
+                    <select value={rota} disabled>
                         <option>{rota || 'Rota automática'}</option>
                     </select>
                 </div>

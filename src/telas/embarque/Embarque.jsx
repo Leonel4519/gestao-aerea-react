@@ -1,24 +1,9 @@
 // Embarque.jsx
 import { useState } from 'react'
 import { IoAirplaneOutline } from 'react-icons/io5'
-import { FaArrowRight } from 'react-icons/fa6'
 import './Embarque.css'
-
-const voos = [
-    { id: 'LA408', destino: 'Lisboa',      gate: 'A2', status: 'Embarque',   passageiros: [
-        { id: 'P001', nome: 'Ana Ferreira',    assento: '14A', bagagem: 1, checkin: true,  embarcou: false },
-        { id: 'P003', nome: 'Joana Silva',     assento: '22C', bagagem: 0, checkin: false, embarcou: false },
-        { id: 'P007', nome: 'Rui Cardoso',     assento: '5B',  bagagem: 2, checkin: true,  embarcou: true  },
-    ]},
-    { id: 'DT201', destino: 'Joanesburgo', gate: 'A2', status: 'No horário', passageiros: [
-        { id: 'P002', nome: 'Carlos Mbemba',  assento: '3B',  bagagem: 2, checkin: true,  embarcou: true  },
-        { id: 'P005', nome: 'Fátima Neto',    assento: '41F', bagagem: 1, checkin: true,  embarcou: true  },
-    ]},
-    { id: 'TP450', destino: 'Paris',       gate: 'B1', status: 'Atrasado',   passageiros: [
-        { id: 'P004', nome: 'Manuel Cardoso', assento: '8D',  bagagem: 2, checkin: true,  embarcou: false },
-        { id: 'P006', nome: 'Pedro Lopes',    assento: '5A',  bagagem: 1, checkin: false, embarcou: false },
-    ]},
-]
+import { useCheckin } from '../../context/CheckinContext'
+import { useVoos } from '../../context/VooContext'
 
 const obterClasse = (status) => {
     const mapa = {
@@ -31,35 +16,56 @@ const obterClasse = (status) => {
 }
 
 const Embarque = () => {
-    const [voosState, setVoosState] = useState(voos)
+    const { passageiros }  = useCheckin()
+    const { voos }         = useVoos()
+    const [embarcados, setEmbarcados] = useState([])
 
-    const embarcar = (vooId, paxId) => {
-        setVoosState(prev => prev.map(v =>
-            v.id !== vooId ? v : {
-                ...v,
-                passageiros: v.passageiros.map(p =>
-                    p.id === paxId ? { ...p, embarcou: true } : p
-                )
-            }
-        ))
+    const embarcar = (passageiroId) => {
+        setEmbarcados(prev => [...prev, passageiroId])
     }
+
+    // Agrupa passageiros por voo
+    const voosComPassageiros = voos.map(voo => {
+        const paxDoVoo = passageiros.filter(p => p.voo === voo.codigo)
+
+        return {
+            id:          voo.codigo,
+            destino:     voo.destino,
+            gate:        voo.gate,
+            status:      voo.estado,
+            passageiros: paxDoVoo.map(p => ({
+                id:        p.id,
+                nome:      p.nome,
+                assento:   p.assento,
+                checkin:   p.checkinFeito,
+                embarcou:  embarcados.includes(p.id)
+            }))
+        }
+    }).filter(v => v.passageiros.length > 0)
 
     return (
         <div className='seccao-embarque'>
             <div className='embarque'>
                 <div className='embarque-topo'>
                     <h2><IoAirplaneOutline /> Controlo de Embarque</h2>
-                    <a href='/' className='ver-todos'>Ver todos <FaArrowRight /></a>
                 </div>
 
+                {voosComPassageiros.length === 0 && (
+                    <div className='embarque-vazio'>
+                        Nenhum passageiro registado nos voos activos.
+                    </div>
+                )}
+
                 <div className='embarque-grid'>
-                    {voosState.map(v => {
-                        const todos      = v.passageiros
-                        const embarcados = todos.filter(p => p.embarcou)
-                        const prontos    = todos.filter(p => p.checkin && !p.embarcou)
-                        const semCheckin = todos.filter(p => !p.checkin)
-                        const pct        = todos.length > 0 ? (embarcados.length / todos.length) * 100 : 0
-                        const cls        = obterClasse(v.status)
+                    {voosComPassageiros.map(v => {
+                        const todos       = v.passageiros
+                        const embarcadosList = todos.filter(p => p.embarcou)
+                        const prontos     = todos.filter(p => p.checkin && !p.embarcou)
+                        const semCheckin  = todos.filter(p => !p.checkin)
+                        const pct         = todos.length > 0
+                            ? (embarcadosList.length / todos.length) * 100
+                            : 0
+                        const cls = obterClasse(v.status)
 
                         return (
                             <div key={v.id} className={`voo-card ${cls}`}>
@@ -75,33 +81,44 @@ const Embarque = () => {
 
                                 <div className='voo-progresso'>
                                     <div className='voo-progresso-nums'>
-                                        <span>{embarcados.length} embarcados</span>
+                                        <span>{embarcadosList.length} embarcados</span>
                                         <span>{prontos.length} prontos</span>
                                         {semCheckin.length > 0 && (
-                                            <span className='sem-checkin-count'>{semCheckin.length} sem check-in</span>
+                                            <span className='sem-checkin-count'>
+                                                {semCheckin.length} sem check-in
+                                            </span>
                                         )}
                                     </div>
                                     <div className='barra'>
-                                        <div className={`progresso ${cls}`} style={{ width: `${pct}%` }} />
+                                        <div
+                                            className={`progresso ${cls}`}
+                                            style={{ width: `${pct}%` }}
+                                        />
                                     </div>
-                                    <div className='pct-label'>{Math.round(pct)}% embarcado</div>
+                                    <div className='pct-label'>
+                                        {Math.round(pct)}% embarcado
+                                    </div>
                                 </div>
 
                                 {prontos.length > 0 && (
                                     <div className='pax-lista'>
-                                        <div className='pax-lista-titulo'>Prontos para embarcar</div>
+                                        <div className='pax-lista-titulo'>
+                                            Prontos para embarcar
+                                        </div>
                                         {prontos.map(p => (
                                             <div key={p.id} className='pax-row'>
                                                 <div className='pax-avatar'>
-                                                    {p.nome.split(' ').map(n => n[0]).slice(0, 2).join('')}
+                                                    {p.nome.split(' ').map(n => n[0]).slice(0,2).join('')}
                                                 </div>
                                                 <div className='pax-info'>
                                                     <span className='pax-nome'>{p.nome}</span>
-                                                    <span className='pax-detalhe'>Assento {p.assento} · {p.bagagem} </span>
+                                                    <span className='pax-detalhe'>
+                                                        Assento {p.assento}
+                                                    </span>
                                                 </div>
                                                 <button
                                                     className='btn-embarcar'
-                                                    onClick={() => embarcar(v.id, p.id)}
+                                                    onClick={() => embarcar(p.id)}
                                                 >
                                                     ✈ Embarcar
                                                 </button>
@@ -121,6 +138,7 @@ const Embarque = () => {
                                         ✓ Todos os passageiros embarcados
                                     </div>
                                 )}
+
                             </div>
                         )
                     })}

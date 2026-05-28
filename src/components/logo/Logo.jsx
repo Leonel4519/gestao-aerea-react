@@ -7,7 +7,7 @@ const Logo = () =>{
         <div className='container-logo'>
             <img src={logo} alt='Logo' className="logo"/>
             <div className='logo-text'>
-                <h1>AirLightGestão</h1>
+                <h1>AirLuzGestão</h1>
                 <h2>GESTÃO AEROPORTUÁRIA</h2>
             </div>
         </div>

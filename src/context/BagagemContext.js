@@ -1,22 +1,20 @@
+// BagagemContext.js
 import { createContext, useContext, useState } from 'react'
-
-const bagagensIniciais = [
-    { id: 1, passageiroId: 1, nome: 'Leonel Domingos', peso: 30, tipo: 'Mala de porão',  rota: 'LA408 · LDA → LIS', codigo: 'BAG-001' },
-    { id: 2, passageiroId: 2, nome: 'Manuel Ferreira',  peso: 25, tipo: 'Mala de porão',  rota: 'LA408 · LDA → LIS', codigo: 'BAG-002' },
-    { id: 3, passageiroId: 1, nome: 'Leonel Domingos', peso: 8,  tipo: 'Bagagem de mão', rota: 'LA408 · LDA → LIS', codigo: 'BAG-003' },
-]
 
 const BagagemContext = createContext()
 
 export const BagagemProvider = ({ children }) => {
-    const [bagagens, setBagagens] = useState(bagagensIniciais)
+    const [bagagens, setBagagens] = useState([]) // ← array vazio
 
     const adicionarBagagem = (novaBagagem) => {
-        setBagagens(prev => [novaBagagem, ...prev])
+        setBagagens(prev => [...prev, {
+            ...novaBagagem,
+            passageiroId: Number(novaBagagem.passageiroId)
+        }])
     }
 
     const bagagensDoPassageiro = (passageiroId) =>
-        bagagens.filter(b => b.passageiroId === passageiroId)
+        bagagens.filter(b => Number(b.passageiroId) === Number(passageiroId))
 
     return (
         <BagagemContext.Provider value={{ bagagens, setBagagens, adicionarBagagem, bagagensDoPassageiro }}>

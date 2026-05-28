@@ -1,33 +1,122 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:wght@400;9006display=swap');
-
-.header {
-    position: sticky;
-    top: 0;
-    padding: 10px;
-    background: #FFFFFF;
-    height: 50px;
-    border-bottom: 1px solid #9d9d9d;
-    box-sizing: border-box;
-    z-index: 100;
-
-    
-}
-.icon-header{
-    color: #0C447C;
-
-}
-
-.header h2 svg{
-    color: #0C447C;
-    font-size: 18px;
-}
-
-.header h2{
+.header{
+    width: calc(100% - 280px);
     display: flex;
-    font-size: 20px;
-    margin-top: 5px;
-    font-family:'Roboto', sans-serif;
+    height: 74px;
     align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding-right: 20px;
+    top: 0;
+    right: 0;
 
-    gap: 10px;
+    padding: 0 28px;
+
+    background: rgba(255,255,255,.92);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid #E2E8F0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    z-index: 100;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-icon{
+    width: 46px;
+    height: 46px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #0C447C,
+        #1D5FA8
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 20px;
+
+    box-shadow: 0 4px 14px rgba(12,68,124,.18);
+
+    flex-shrink: 0;
+}
+
+.header-texto{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-texto h2{
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #0F172A;
+
+    letter-spacing: -.3px;
+}
+
+.header-texto p{
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    color: #64748B;
+
+    font-weight: 500;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px){
+
+    .header{
+        width: calc(100% - 85px);
+
+        padding: 0 18px;
+    }
+
+    .header-texto p{
+        display: none;
+    }
+}
+
+@media(max-width: 600px){
+
+    .header{
+        width: 100%;
+
+        left: 0;
+
+        padding-left: 90px;
+    }
+
+    .header-icon{
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .header-texto h2{
+        font-size: 15px;
+    }
 }

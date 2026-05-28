@@ -3,6 +3,7 @@ import './TabelaVoo.css'
 import { FaArrowRight } from "react-icons/fa6"
 import { IoAirplaneOutline } from 'react-icons/io5'
 import { useVoos } from '../../context/VooContext'
+import { useCheckin } from '../../context/CheckinContext'
 
 const obterClasse = (estado) => {
     const mapa = {
@@ -15,7 +16,8 @@ const obterClasse = (estado) => {
 }
 
 const TabelaVoo = () => {
-    const { voos } = useVoos()
+    const { voos }        = useVoos()
+    const { passageiros } = useCheckin()
 
     return (
         <div className="tabela-voo">
@@ -38,14 +40,22 @@ const TabelaVoo = () => {
                 <tbody>
                     {voos.map((voo) => {
                         const cls = obterClasse(voo.estado)
-                        const embarcados = voo.embarcados ?? 0
-                        const pct = voo.passageiros > 0
-                            ? (embarcados / voo.passageiros) * 100
-                            : 0
+
+                        // passageiros deste voo com check-in feito
+                        const paxDoVoo       = passageiros.filter(p => p.voo === voo.codigo)
+                        const totalPax       = paxDoVoo.length > 0 ? paxDoVoo.length : voo.passageiros
+                        const checkinsFeitos = paxDoVoo.filter(p => p.checkinFeito).length
+                        const embarcados     = paxDoVoo.length > 0 ? checkinsFeitos : (voo.embarcados ?? 0)
+                        const pct            = totalPax > 0 ? (embarcados / totalPax) * 100 : 0
 
                         return (
                             <tr key={voo.id}>
-                                <td>{voo.codigo}</td>
+                                <td>
+                                    <div className="voo-info-cell">
+                                        <strong>{voo.codigo}</strong>
+                                        <span>{voo.companhia}</span>
+                                    </div>
+                                </td>
                                 <td>{voo.destino}</td>
                                 <td>{voo.hora ?? '—'}</td>
                                 <td>
@@ -57,7 +67,7 @@ const TabelaVoo = () => {
                                 <td>
                                     <div className="embarque-info">
                                         <span className="embarque-nums">
-                                            {embarcados} / {voo.passageiros}
+                                            {embarcados} / {totalPax}
                                         </span>
                                         <div className="barra">
                                             <div

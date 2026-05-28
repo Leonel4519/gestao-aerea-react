@@ -1,30 +1,118 @@
-.seccao_voo {
+/* ───────────────────────────── */
+/* LAYOUT BASE */
+/* ───────────────────────────── */
+
+.seccao_voo{
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
+
     gap: 25px;
+
     padding: 20px;
+
     margin-left: 280px;
     margin-top: 70px;
+
     width: calc(100% - 300px);
+
     box-sizing: border-box;
 }
 
-.voo-card-container {
+/* ───────────────────────────── */
+/* CARDS */
+/* ───────────────────────────── */
+
+.voo-card-container{
     display: grid;
+
     gap: 20px;
+
     grid-template-columns: repeat(4, 1fr);
 }
 
-.tabelato_dos_voos-container {
+/* ───────────────────────────── */
+/* TABELA */
+/* ───────────────────────────── */
+
+.tabelato_dos_voos-container{
     min-width: 0;
 }
 
-/* ÁREA COM TABELA + IMPACTO */
-.area-operacional-voo {
+/* ───────────────────────────── */
+/* ÁREA OPERACIONAL */
+/* ───────────────────────────── */
+
+.area-operacional-voo{
     width: 100%;
+
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        280px;
+
     gap: 20px;
+
     align-items: start;
+}
+
+/* ───────────────────────────── */
+/* RESPONSIVIDADE */
+/* ───────────────────────────── */
+
+@media (max-width: 1400px){
+
+    .voo-card-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px){
+
+    .voo-card-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .area-operacional-voo{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px){
+
+    .seccao_voo{
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 16px;
+    }
+}
+
+@media (max-width: 700px){
+
+    .voo-card-container{
+        grid-template-columns: 1fr;
+    }
+
+    .area-operacional-voo{
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .seccao_voo{
+        padding: 12px;
+
+        gap: 18px;
+    }
+
+    .voo-card-container{
+        gap: 14px;
+    }
+
+    .area-operacional-voo{
+        gap: 14px;
+    }
 }

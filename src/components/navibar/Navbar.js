@@ -1,27 +1,21 @@
-import './Navibar.css';
+import './Navibar.css'
 
-import Logo from "../logo/Logo";
+import Logo from "../logo/Logo"
 
-import { IoMdTime } from 'react-icons/io';
+import { IoMdTime } from 'react-icons/io'
+import { MdOutlineDashboard } from 'react-icons/md'
+import { FaRegCalendarCheck } from 'react-icons/fa'
+import { TbLuggage } from 'react-icons/tb'
+import { MdFlightTakeoff } from 'react-icons/md'
+import { IoPersonOutline } from 'react-icons/io5'
+import { TfiBarChartAlt } from 'react-icons/tfi'
+import { FiLogOut } from 'react-icons/fi'
 
-import { MdOutlineDashboard } from 'react-icons/md';
-
-import { FaRegCalendarCheck } from 'react-icons/fa';
-
-import { TbLuggage } from 'react-icons/tb';
-
-import { MdFlightTakeoff } from 'react-icons/md';
-
-import { IoPersonOutline } from 'react-icons/io5';
-
-import { TfiBarChartAlt } from 'react-icons/tfi';
-
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 
     const usuario = JSON.parse(
-
         localStorage.getItem('usuario')
     )
 
@@ -34,7 +28,7 @@ const Navbar = () => {
         window.location.reload()
     }
 
-    return(
+    return (
 
         <div className="sidenav">
 
@@ -47,9 +41,7 @@ const Navbar = () => {
                     {/* PRINCIPAL */}
 
                     <h1 className="title-ul">
-
                         PRINCIPAL
-
                     </h1>
 
                     <li>
@@ -58,7 +50,7 @@ const Navbar = () => {
 
                             <MdOutlineDashboard/>
 
-                            Painel
+                            <span>Painel</span>
 
                         </Link>
 
@@ -76,7 +68,7 @@ const Navbar = () => {
 
                                 <IoMdTime/>
 
-                                Voos
+                                <span>Voos</span>
 
                             </Link>
 
@@ -86,9 +78,7 @@ const Navbar = () => {
                     {/* OPERAÇÕES */}
 
                     <h1 className="title-ul">
-
                         OPERAÇÕES
-
                     </h1>
 
                     {
@@ -111,7 +101,7 @@ const Navbar = () => {
 
                                 <FaRegCalendarCheck/>
 
-                                Check-in
+                                <span>Check-in</span>
 
                             </Link>
 
@@ -138,7 +128,7 @@ const Navbar = () => {
 
                                 <TbLuggage/>
 
-                                Bagagem
+                                <span>Bagagem</span>
 
                             </Link>
 
@@ -165,7 +155,7 @@ const Navbar = () => {
 
                                 <MdFlightTakeoff/>
 
-                                Embarque
+                                <span>Embarque</span>
 
                             </Link>
 
@@ -183,9 +173,7 @@ const Navbar = () => {
                         <>
 
                             <h1 className="title-ul">
-
                                 ADMINISTRAÇÃO
-
                             </h1>
 
                             <li>
@@ -194,7 +182,7 @@ const Navbar = () => {
 
                                     <IoPersonOutline/>
 
-                                    Passageiros
+                                    <span>Passageiros</span>
 
                                 </Link>
 
@@ -206,7 +194,7 @@ const Navbar = () => {
 
                                     <TfiBarChartAlt/>
 
-                                    Relatórios
+                                    <span>Relatórios</span>
 
                                 </Link>
 
@@ -218,20 +206,18 @@ const Navbar = () => {
 
                 </ul>
 
+                {/* UTILIZADOR */}
+
                 <div className='logout-container'>
 
                     <div className='usuario-info'>
 
                         <span className='usuario-nome'>
-
                             {usuario?.nome}
-
                         </span>
 
                         <span className='usuario-perfil'>
-
                             {usuario?.perfil}
-
                         </span>
 
                     </div>
@@ -241,7 +227,9 @@ const Navbar = () => {
                         onClick={sair}
                     >
 
-                        Sair
+                        <FiLogOut/>
+
+                        <span>Sair</span>
 
                     </button>
 

@@ -28,6 +28,8 @@ import { CheckinProvider } from './context/CheckinContext'
 
 import { BagagemProvider } from './context/BagagemContext'
 
+import { NotificacaoProvider } from './context/NotificacaoContext'
+
 function App() {
 
   const usuario = localStorage.getItem('usuario')
@@ -46,6 +48,7 @@ function App() {
       <CheckinProvider>
 
         <BagagemProvider>
+          <NotificacaoProvider>
 
           <div className="App">
 
@@ -77,6 +80,7 @@ function App() {
 
           </div>
 
+           </NotificacaoProvider>
         </BagagemProvider>
 
       </CheckinProvider>

@@ -1,164 +1,410 @@
-/* ── LAYOUT ── */
-.tabela-passageiros {
+/* ───────────────────────────── */
+/* LAYOUT */
+/* ───────────────────────────── */
+
+.tabela-passageiros{
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
-    gap: 25px;
+
+    gap: 20px;
+
     padding: 20px;
+
     margin-left: 280px;
     margin-top: 70px;
+
     width: calc(100% - 300px);
+
     box-sizing: border-box;
-}
 
-/* ── CONTAINER ── */
-.tabela-passageiros {
     background: #ffffff;
-    border-radius: 16px;
+
+    border-radius: 14px;
+
     border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
     overflow: hidden;
-    
 }
 
-/* ── CABEÇALHO ── */
-.tabela-header {
+/* ───────────────────────────── */
+/* HEADER */
+/* ───────────────────────────── */
+
+.tabela-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 12px 16px;
+
+    padding: 18px 18px 14px;
+
     border-bottom: 1px solid #f1f5f9;
 }
 
-.tabela-header h2 {
+.tabela-header h2{
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #0f172a;
+
+    gap: 8px;
+
     margin: 0;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #0f172a;
 }
 
-.ver-todos {
+.ver-todos{
     display: flex;
     align-items: center;
+
     gap: 6px;
+
+    text-decoration: none;
+
     font-size: 13px;
     font-weight: 600;
-    color: #0ea5e9;
-    text-decoration: none;
-    transition: gap 0.2s;
-}
-.ver-todos:hover { gap: 10px; }
 
-/* ── PESQUISA ── */
-.tabela-search {
-    padding: 12px 12px;
+    color: #475569;
+
+    transition: .2s;
+}
+
+.ver-todos:hover{
+    gap: 10px;
+}
+
+/* ───────────────────────────── */
+/* SEARCH */
+/* ───────────────────────────── */
+
+.tabela-search{
+    padding: 0 18px 16px;
+
     border-bottom: 1px solid #f1f5f9;
 }
 
-.tabela-search input {
+.tabela-search input{
     width: 100%;
-    padding: 9px 14px;
+
+    height: 42px;
+
     border: 1px solid #e2e8f0;
+
     border-radius: 10px;
-    font-size: 13px;
-    color: #0f172a;
+
     background: #f8fafc;
+
+    padding: 0 14px;
+
+    font-size: 13px;
+
+    color: #0f172a;
+
     outline: none;
+
+    transition: .2s;
+
     box-sizing: border-box;
-    transition: border-color 0.2s;
-    font-family: inherit;
 }
-.tabela-search input:focus { border-color: #0ea5e9; background: #fff; }
-.tabela-search input::placeholder { color: #94a3b8; }
 
-/* ── TABELA ── */
-.tabela-passageiros table { width: 100%; border-collapse: collapse; }
+.tabela-search input:focus{
+    border-color: #cbd5e1;
 
-.tabela-passageiros thead th {
-    padding: 10px 12px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 700;
+    background: #ffffff;
+}
+
+.tabela-search input::placeholder{
     color: #94a3b8;
+}
+
+/* ───────────────────────────── */
+/* TABELA */
+/* ───────────────────────────── */
+
+.table-responsive{
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.tabela-passageiros table{
+    width: 100%;
+
+    min-width: 760px;
+
+    border-collapse: collapse;
+}
+
+.tabela-passageiros thead th{
+    padding: 12px 14px;
+
+    text-align: left;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    color: #94a3b8;
+
     text-transform: uppercase;
     letter-spacing: 1px;
+
     background: #f8fafc;
+
     border-bottom: 1px solid #e2e8f0;
 }
 
-.tabela-passageiros tbody tr { transition: background 0.15s; }
-.tabela-passageiros tbody tr:hover { background: #f8fafc; }
+.tabela-passageiros tbody tr{
+    transition: .2s;
+}
 
-.tabela-passageiros tbody td {
-    padding: 14px 12px;
+.tabela-passageiros tbody tr:hover{
+    background: #fafafa;
+}
+
+.tabela-passageiros tbody td{
+    padding: 14px;
+
     border-bottom: 1px solid #f1f5f9;
+
     font-size: 13px;
+
     color: #334155;
+
     vertical-align: middle;
 }
 
-.tabela-passageiros tbody tr:last-child td { border-bottom: none; }
+.tabela-passageiros tbody tr:last-child td{
+    border-bottom: none;
+}
 
-/* ── PASSAGEIRO ── */
-.passageiro-info { display: flex; align-items: center; gap: 12px; }
+/* ───────────────────────────── */
+/* PASSAGEIRO */
+/* ───────────────────────────── */
 
-.avatar {
-    width: 36px; height: 36px;
+.passageiro-info{
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.avatar{
+    width: 36px;
+    height: 36px;
+
     border-radius: 50%;
-    background: #5f94d6;
-    color: #fff;
-    font-size: 12px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; letter-spacing: 0.5px;
+
+    background: #e2e8f0;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
 }
 
-.passageiro-nome { font-weight: 700; color: #0f172a; font-size: 13px; }
-.passageiro-id   { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+.passageiro-nome{
+    font-size: 13px;
+    font-weight: 700;
 
-/* ── BADGES ── */
-.voo-badge {
-    background: #eff6ff; color: #2563eb;
-    border: 1px solid #bfdbfe; border-radius: 6px;
-    padding: 3px 10px; font-size: 12px; font-weight: 700;
+    color: #0f172a;
 }
 
-.assento {
-    background: #fefce8; color: #92400e;
-    border: 1px solid #fde68a; border-radius: 6px;
-    padding: 3px 10px; font-size: 12px; font-weight: 700;
+.passageiro-id{
+    margin-top: 2px;
+
+    font-size: 11px;
+
+    color: #94a3b8;
 }
 
-.passaporte { display: flex; align-items: center; gap: 6px; color: #64748b; font-size: 12px; }
-.bagagem    { display: flex; align-items: center; gap: 6px; color: #64748b; font-size: 13px; }
+/* ───────────────────────────── */
+/* BADGES */
+/* ───────────────────────────── */
 
-/* ── STATUS ── */
-.status {
+.voo-badge{
     display: inline-block;
-    padding: 4px 12px;
+
+    padding: 4px 10px;
+
+    border-radius: 6px;
+
+    background: #f1f5f9;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.assento{
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 6px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    color: #475569;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.passaporte{
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+.bagagem{
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+/* ───────────────────────────── */
+/* STATUS */
+/* ───────────────────────────── */
+
+.status{
+    display: inline-block;
+
+    padding: 4px 10px;
+
     border-radius: 20px;
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.3px;
-}
-.status.embarcado { background: #d1fae5; color: #065f46; }
-.status.checkin   { background: #dbeafe; color: #1e40af; }
-.status.pendente  { background: #fef3c7; color: #92400e; }
 
-/* ── SEM RESULTADOS ── */
-.sem-resultados {
-    text-align: center; color: #94a3b8;
-    padding: 32px !important; font-size: 14px;
+    font-size: 11px;
+    font-weight: 700;
 }
 
-/* ── RODAPÉ ── */
-.tabela-footer {
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 12px;
-    background: #f8fafc; border-top: 1px solid #e2e8f0;
-    font-size: 12px; color: #64748b; font-weight: 600;
+.status.embarcado{
+    background: #f0fdf4;
+    color: #166534;
 }
-.tabela-footer span:nth-child(1) { color: #0ea5e9; }
-.tabela-footer span:nth-child(3) { color: #10b981; }
-.tabela-footer span:nth-child(5) { color: #f59e0b; }
+
+.status.checkin{
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.status.pendente{
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+/* ───────────────────────────── */
+/* SEM RESULTADOS */
+/* ───────────────────────────── */
+
+.sem-resultados{
+    text-align: center;
+
+    padding: 30px !important;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+/* ───────────────────────────── */
+/* FOOTER */
+/* ───────────────────────────── */
+
+.tabela-footer{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    padding: 14px 18px;
+
+    border-top: 1px solid #f1f5f9;
+
+    background: #fafafa;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #64748b;
+}
+
+/* ───────────────────────────── */
+/* RESPONSIVO */
+/* ───────────────────────────── */
+
+@media (max-width: 900px){
+
+    .tabela-passageiros{
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px){
+
+    .tabela-header{
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .tabela-search{
+        padding: 0 14px 14px;
+    }
+
+    .table-responsive{
+        overflow-x: auto;
+    }
+
+    .tabela-footer{
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .tabela-header{
+        padding: 16px 14px;
+    }
+
+    .tabela-passageiros thead th{
+        font-size: 9px;
+    }
+
+    .tabela-passageiros tbody td{
+        padding: 12px;
+
+        font-size: 12px;
+    }
+
+    .avatar{
+        width: 30px;
+        height: 30px;
+
+        font-size: 10px;
+    }
+
+    .passageiro-nome{
+        font-size: 12px;
+    }
+
+    .voo-badge,
+    .assento,
+    .status{
+        font-size: 10px;
+    }
+}

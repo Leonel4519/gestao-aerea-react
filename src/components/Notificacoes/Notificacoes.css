@@ -1,0 +1,91 @@
+/* Notificacoes.css */
+.notificacoes-wrapper {
+    position: relative;
+}
+
+.notif-btn {
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+    cursor: pointer; transition: background 0.15s;
+}
+.notif-btn:hover { background: rgba(255,255,255,0.15); }
+
+.notif-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    background: #EF4444; color: white;
+    font-size: 10px; font-weight: 700;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #0C447C;
+}
+
+.notif-painel {
+    position: absolute;
+    top: 44px; right: 0;
+    width: 300px;
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.notif-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px; font-weight: 600; color: #1E293B;
+}
+
+.notif-marcar-todas {
+    background: none; border: none;
+    font-size: 11px; color: #2563EB;
+    cursor: pointer; font-weight: 600;
+}
+
+.notif-lista {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.notif-vazia {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px; color: #94A3B8;
+}
+
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #F8FAFC;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.notif-item:hover { background: #F8FAFC; }
+.notif-item.lida { opacity: 0.5; }
+
+.notif-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0; margin-top: 4px;
+}
+
+.notif-item.bagagem .notif-dot { background: #F59E0B; }
+.notif-item.checkin .notif-dot { background: #22C55E; }
+
+.notif-conteudo { display: flex; flex-direction: column; gap: 2px; }
+.notif-conteudo strong { font-size: 12px; font-weight: 600; color: #1E293B; }
+.notif-conteudo span   { font-size: 11px; color: #64748B; }
+.notif-conteudo p      { font-size: 10px; color: #94A3B8; margin-top: 2px; }

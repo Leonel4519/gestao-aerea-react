@@ -1,185 +1,504 @@
 /* Embarque.css */
 
-/* ── LAYOUT BASE ── */
-.seccao-embarque {
+/* ───────────────────────────── */
+/* LAYOUT */
+/* ───────────────────────────── */
+
+.seccao-embarque{
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
-    gap: 25px;
+
+    gap: 22px;
+
     padding: 20px;
+
     margin-left: 280px;
     margin-top: 70px;
+
     width: calc(100% - 300px);
+
     box-sizing: border-box;
 }
 
-/* ── CONTAINER ── */
-.embarque {
+/* ───────────────────────────── */
+/* CONTAINER */
+/* ───────────────────────────── */
+
+.embarque{
     background: #ffffff;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
     overflow: hidden;
 }
 
-/* ── TOPO ── */
-.embarque-topo {
+/* ───────────────────────────── */
+/* TOPO */
+/* ───────────────────────────── */
+
+.embarque-topo{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px 16px;
+
+    padding: 18px 22px;
+
     border-bottom: 1px solid #f1f5f9;
 }
 
-.embarque-topo h2 {
+.embarque-topo h2{
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 8px;
+
+    font-size: 15px;
     font-weight: 700;
+
     color: #0f172a;
+
     margin: 0;
 }
 
-.ver-todos {
+.ver-todos{
     display: flex;
     align-items: center;
     gap: 6px;
+
+    text-decoration: none;
+
     font-size: 13px;
     font-weight: 600;
-    color: #0ea5e9;
-    text-decoration: none;
-    transition: gap 0.2s;
-}
-.ver-todos:hover { gap: 10px; }
 
-/* ── GRID DE CARDS ── */
-.embarque-grid {
+    color: #475569;
+
+    transition: .2s;
+}
+
+.ver-todos:hover{
+    gap: 10px;
+}
+
+/* ───────────────────────────── */
+/* GRID */
+/* ───────────────────────────── */
+
+.embarque-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(300px, 1fr)
+    );
+
     gap: 16px;
-    padding: 20px;
+
+    padding: 18px;
 }
 
-/* ── VOO CARD ── */
-.voo-card {
-    background: #f8fafc;
+/* ───────────────────────────── */
+/* CARD */
+/* ───────────────────────────── */
+
+.voo-card{
+    background: #ffffff;
+
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
+
+    border-radius: 12px;
+
     overflow: hidden;
-    transition: box-shadow 0.2s;
+
+    transition: .2s;
 }
-.voo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 
+.voo-card:hover{
+    border-color: #cbd5e1;
 
-/* ── CABEÇALHO DO CARD ── */
-.voo-card-header {
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.04);
+}
+
+/* ───────────────────────────── */
+/* HEADER */
+/* ───────────────────────────── */
+
+.voo-card-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 18px;
-    border-bottom: 1px solid #e2e8f0;
-    background: #ffffff;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.voo-card-info { display: flex; align-items: center; gap: 10px; }
-.voo-codigo    { font-size: 15px; font-weight: 800; color: #0f172a; }
-.voo-destino   { font-size: 13px; color: #64748b; }
-
-.voo-gate {
-    font-size: 12px; font-weight: 700;
-    color: #1f1f1e; 
-    
+.voo-card-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* ── STATUS ── */
-.status {
-    display: inline-block;
-    padding: 4px 12px;
+.voo-codigo{
+    font-size: 14px;
+    font-weight: 800;
+
+    color: #0f172a;
+}
+
+.voo-destino{
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+.voo-gate{
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #475569;
+}
+
+/* ───────────────────────────── */
+/* STATUS */
+/* ───────────────────────────── */
+
+.status{
+    padding: 4px 10px;
+
     border-radius: 20px;
-    font-size: 12px; font-weight: 700;
-}
-.status.embarcando { background: #dbeafe; color: #1e40af; }
-.status.confirmado  { background: #d1fae5; color: #065f46; }
-.status.atrasado    { background: #fee2e2; color: #991b1b; }
-.status.programado  { background: #f1f5f9; color: #475569; }
 
-/* ── PROGRESSO ── */
-.voo-progresso { padding: 14px 18px 10px; }
-
-.voo-progresso-nums {
-    display: flex; gap: 12px;
-    font-size: 12px; font-weight: 600;
-    margin-bottom: 8px; flex-wrap: wrap;
-}
-.voo-progresso-nums span:nth-child(1) { color: #10b981; }
-.voo-progresso-nums span:nth-child(2) { color: #0ea5e9; }
-.sem-checkin-count { color: #f59e0b !important; }
-
-.barra { height: 7px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
-.progresso { height: 100%; border-radius: 99px; transition: width 0.6s cubic-bezier(.4,0,.2,1); }
-
-.progresso.embarcando { background: #0ea5e9; }
-.progresso.confirmado  { background: #10b981; }
-.progresso.atrasado    { background: #f87171; }
-.progresso.programado  { background: #94a3b8; }
-
-.pct-label { font-size: 11px; color: #94a3b8; font-weight: 600; text-align: right; }
-
-/* ── LISTA DE PASSAGEIROS ── */
-.pax-lista { padding: 0 18px 14px; }
-
-.pax-lista-titulo {
-    font-size: 11px; font-weight: 700;
-    color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 10px; padding-top: 10px;
-    border-top: 1px solid #e2e8f0;
+    font-size: 11px;
+    font-weight: 700;
 }
 
-.pax-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 8px 0; border-bottom: 1px solid #f1f5f9;
-}
-.pax-row:last-child { border-bottom: none; }
-
-.pax-avatar {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: #5f94d6;
-    color: #fff; font-size: 11px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.status.embarcando{
+    background: #e0f2fe;
+    color: #0369a1;
 }
 
-.pax-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.pax-nome   { font-size: 13px; font-weight: 700; color: #0f172a; }
-.pax-detalhe { font-size: 11px; color: #94a3b8; }
-
-/* ── BOTÃO EMBARCAR ── */
-.btn-embarcar {
-    background: #eff6ff; color: #2563eb;
-    border: 1px solid #bfdbfe; border-radius: 8px;
-    padding: 6px 14px; font-size: 12px; font-weight: 700;
-    cursor: pointer; font-family: inherit;
-    transition: background 0.15s, transform 0.1s;
-    white-space: nowrap; flex-shrink: 0;
-}
-.btn-embarcar:hover  { background: #dbeafe; transform: scale(1.03); }
-.btn-embarcar:active { transform: scale(0.97); }
-
-/* ── ALERTAS ── */
-.alerta-sem-checkin {
-    margin: 0 18px 14px; padding: 8px 12px;
-    background: #fef3c7; 
-    border-radius: 8px; font-size: 12px; color: #92400e; font-weight: 600;
+.status.confirmado{
+    background: #dcfce7;
+    color: #166534;
 }
 
-.todos-embarcados {
-    margin: 0 18px 14px; padding: 8px 12px;
-    background: #d1fae5;
-    border-radius: 8px; font-size: 12px; color: #065f46; font-weight: 700;
+.status.atrasado{
+    background: #fee2e2;
+    color: #991b1b;
 }
 
-/* ── RESPONSIVO ── */
-@media (max-width: 768px) {
-    .embarque-grid { grid-template-columns: 1fr; }
-    .seccao-embarque { margin-left: 0; width: 100%; }
+.status.programado{
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* ───────────────────────────── */
+/* PROGRESSO */
+/* ───────────────────────────── */
+
+.voo-progresso{
+    padding: 14px 16px 10px;
+}
+
+.voo-progresso-nums{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #64748b;
+}
+
+.sem-checkin-count{
+    color: #b45309;
+}
+
+.barra{
+    height: 6px;
+
+    background: #e2e8f0;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    margin-bottom: 6px;
+}
+
+.progresso{
+    height: 100%;
+
+    border-radius: 999px;
+
+    transition: width .4s ease;
+}
+
+.progresso.embarcando{
+    background: #0284c7;
+}
+
+.progresso.confirmado{
+    background: #16a34a;
+}
+
+.progresso.atrasado{
+    background: #dc2626;
+}
+
+.progresso.programado{
+    background: #94a3b8;
+}
+
+.pct-label{
+    text-align: right;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    color: #94a3b8;
+}
+
+/* ───────────────────────────── */
+/* PASSAGEIROS */
+/* ───────────────────────────── */
+
+.pax-lista{
+    padding: 0 16px 14px;
+}
+
+.pax-lista-titulo{
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+    border-top: 1px solid #f1f5f9;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    color: #94a3b8;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pax-row{
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #f8fafc;
+}
+
+.pax-row:last-child{
+    border-bottom: none;
+}
+
+.pax-avatar{
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #e2e8f0;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.pax-info{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.pax-nome{
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.pax-detalhe{
+    font-size: 11px;
+
+    color: #94a3b8;
+}
+
+/* ───────────────────────────── */
+/* BOTÃO */
+/* ───────────────────────────── */
+
+.btn-embarcar{
+    border: 1px solid #dbeafe;
+
+    background: #f8fafc;
+
+    color: #334155;
+
+    border-radius: 8px;
+
+    padding: 6px 12px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    flex-shrink: 0;
+}
+
+.btn-embarcar:hover{
+    background: #f1f5f9;
+}
+
+/* ───────────────────────────── */
+/* ALERTAS */
+/* ───────────────────────────── */
+
+.alerta-sem-checkin{
+    margin: 0 16px 14px;
+
+    padding: 10px 12px;
+
+    background: #fffbeb;
+
+    border: 1px solid #fde68a;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #92400e;
+}
+
+.todos-embarcados{
+    margin: 0 16px 14px;
+
+    padding: 10px 12px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #166534;
+}
+
+/* ───────────────────────────── */
+/* RESPONSIVO */
+/* ───────────────────────────── */
+
+@media (max-width: 1100px){
+
+    .embarque-grid{
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(260px, 1fr)
+        );
+    }
+}
+
+@media (max-width: 900px){
+
+    .seccao-embarque{
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 16px;
+    }
+}
+
+@media (max-width: 600px){
+
+    .embarque-topo{
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .embarque-grid{
+        grid-template-columns: 1fr;
+
+        padding: 14px;
+    }
+
+    .voo-card-header{
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .pax-row{
+        flex-wrap: wrap;
+    }
+
+    .btn-embarcar{
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px){
+
+    .seccao-embarque{
+        padding: 12px;
+    }
+
+    .embarque{
+        border-radius: 10px;
+    }
+
+    .embarque-topo{
+        padding: 16px;
+    }
+
+    .voo-progresso,
+    .pax-lista{
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .pax-avatar{
+        width: 30px;
+        height: 30px;
+
+        font-size: 10px;
+    }
+
+    .pax-nome{
+        font-size: 12px;
+    }
+
+    .btn-embarcar{
+        height: 38px;
+    }
 }
