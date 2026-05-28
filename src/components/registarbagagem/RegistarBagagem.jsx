@@ -54,7 +54,10 @@ const RegistrarBagagem = ({ peso, setPeso }) => {
             rota:         rota,
             codigo:       codigo
         })
-        
+        setPassageiroId('')
+        setPeso(0)
+        setRota('')
+        setErro('')
 
         adicionarNotificacao({
             tipo:      'bagagem',
